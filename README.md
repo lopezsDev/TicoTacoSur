@@ -23,7 +23,7 @@
 
 Para ejecutar el proyecto localmente, sigue estos pasos:
 
-1. Clona el repositorio: `git clone https://github.com/your-username/smart-search-project.git`
+1. Clona el repositorio: `https://github.com/lopezsDev/TicoTacoSur.git`
 2. Configura la conexión a la base de datos en el archivo de configuración correspondiente.
 3. Construye e implementa el backend usando Java.
 4. Abre los archivos frontend en un navegador web para comenzar a usar la aplicación.
