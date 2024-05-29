@@ -1,36 +1,34 @@
 package com.TicoTaco.TicoTaco.model;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
-@Entity
 @Data
+@Entity
 @Table(name = "BODEGA")
 public class BodegaModel {
 
     @Id
     @Column(name = "C_BODEGA")
-    private int cBodega;
+    private int bodegaId;
 
     @Column(name = "Q_STOCK")
-    private double qStock;
+    private double stock;
 
     @Column(name = "Q_MINIMA")
-    private double qMinima;
+    private double CantidadMinima;
 
     @Column(name = "F_INGRESO")
-    private LocalDateTime fIngreso;
+    private java.time.LocalDateTime ingreso;
 
     @Column(name = "C_PRODUCTO")
-    private int cProducto;
+    private int producto;
 
     @Column(name = "C_SUCURSAL")
-    private int cSucursal;
-
-
+    private int sucursal;
 }
+
