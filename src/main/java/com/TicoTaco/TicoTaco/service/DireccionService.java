@@ -35,7 +35,7 @@ public class DireccionService {
 
         if (direccion != null) {
             direccion.setDireccionEspecifica(direccionDetails.getDireccionEspecifica());
-            direccion.setDistrito(direccionDetails.getDistrito());
+            direccion.setDistritoId(direccionDetails.getDistritoId());
 
             return direccionRepository.save(direccion);
         } else {

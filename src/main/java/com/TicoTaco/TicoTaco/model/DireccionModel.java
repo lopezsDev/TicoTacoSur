@@ -19,5 +19,5 @@ public class DireccionModel {
     private String direccionEspecifica;
 
     @Column(name = "C_DISTRITO")
-    private int distrito;
+    private int distritoId;
 }
