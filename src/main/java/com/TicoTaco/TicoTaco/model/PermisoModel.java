@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "PERMISO")
+@Table(name = "PERMISOS")
 public class PermisoModel {
 
     @Id
