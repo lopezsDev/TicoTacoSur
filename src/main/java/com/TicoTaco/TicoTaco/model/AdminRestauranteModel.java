@@ -13,13 +13,16 @@ public class AdminRestauranteModel {
 
     @Id
     @Column(name = "C_ADMIN")
-    private int adminId;
+    private Long adminId;
 
     @Column(name = "M_GANANCIAS")
     private double ganancias;
 
     @Column(name = "M_PERDIDAS")
     private double perdidas;
+
+    @Column(name = "C_PLANILLA")
+    private int planilla;
 
     @Column(name = "C_SUCURSAL")
     private int sucursal;

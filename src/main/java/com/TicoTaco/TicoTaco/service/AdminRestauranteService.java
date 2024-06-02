@@ -24,7 +24,7 @@ public class AdminRestauranteService {
     }
 
     // Obtener un elemento por su ID
-    public Optional<AdminRestauranteModel> getAdminRestauranteById(int id) {
+    public Optional<AdminRestauranteModel> getAdminRestauranteById(Long id) {
         return adminRestauranteRepository.findById(id);
     }
 
@@ -34,7 +34,7 @@ public class AdminRestauranteService {
     }
 
     // Actualizar un elemento existente
-    public AdminRestauranteModel updateAdminRestaurante(int id, AdminRestauranteModel adminRestauranteDetails) {
+    public AdminRestauranteModel updateAdminRestaurante(Long id, AdminRestauranteModel adminRestauranteDetails) {
         AdminRestauranteModel adminRestaurante = adminRestauranteRepository.findById(id).orElse(null);
 
         if (adminRestaurante != null) {
@@ -50,7 +50,7 @@ public class AdminRestauranteService {
     }
 
     // Eliminar un elemento existente
-    public void deleteAdminRestaurante(int id) {
+    public void deleteAdminRestaurante(Long id) {
         adminRestauranteRepository.deleteById(id);
     }
 }
