@@ -1,11 +1,10 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "FACTURA")
@@ -16,7 +15,7 @@ public class FacturaModel {
     private long facturaId;
 
     @Column(name = "F_FECHA_PEDIDO")
-    private Date fechaPedido;
+    private LocalDateTime fechaPedido;
 
     @Column(name = "M_MONTO_TOTAL")
     private double montoTotal;
@@ -32,4 +31,14 @@ public class FacturaModel {
 
     @Column(name = "C_MONEDA")
     private long monedaId;
+
+    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
+    private List<PedidoClienteModel> pedidosClientes;
+
+    @OneToOne(mappedBy = "factura", cascade = CascadeType.ALL)
+    private CajasModel caja;
+
+    @OneToOne(mappedBy = "factura", cascade = CascadeType.ALL)
+    private SucursalModel sucursal;
+
 }

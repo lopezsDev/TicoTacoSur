@@ -1,10 +1,9 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -21,9 +20,13 @@ public class SucursalModel {
     @Column(name = "C_DIRECCION")
     private long direccionId;
 
+    @OneToMany(mappedBy = "sucursaId", cascade = CascadeType.ALL)
+    private List<FacturaModel> facturaId;
+
     @Column(name = "C_CONTACTO")
     private long contacto;
 
     @Column(name = "C_CAJA")
     private long caja;
 }
+
