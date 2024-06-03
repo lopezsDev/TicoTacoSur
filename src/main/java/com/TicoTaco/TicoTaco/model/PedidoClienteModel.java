@@ -25,14 +25,17 @@ public class PedidoClienteModel {
     @Column(name = "C_ESTADO")
     private long estadoId;
 
-    @Column(name = "C_MENU")
-    private long menuId;
+    @Column(name = "C_EXPRESS")
+    private long cexpress;
 
     @Column(name = "C_CLIENTE")
     private long clienteId;
 
-    @Column(name = "C_TIPO_ENTREGA")
-    private long tipoEntregaId;
+    @Column(name = "C_EMPLEADO")
+    private long idempleado;
+
+    @Column(name = "C_MENU")
+    private long cmenu;
 
     @ManyToOne
     @JoinColumn(name = "estado_Id", nullable = false)

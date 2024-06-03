@@ -24,7 +24,5 @@ public class DetallesFacturaModel {
     @Column(name = "D_OBSERVACIONES")
     private String observaciones;
 
-    @Column(name = "C_PRODUCTO")
-    private int producto;
 }
 

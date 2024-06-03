@@ -43,6 +43,7 @@ public class CajasService {
             cajas.setMontoInicial(cajasDetails.getMontoInicial());
             cajas.setFinalMonto(cajasDetails.getFinalMonto());
             cajas.setFormaPago(cajasDetails.getFormaPago());
+            cajas.setCodfactura(cajasDetails.getCodfactura());
 
             return cajasRepository.save(cajas);
         } else {
