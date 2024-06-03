@@ -33,11 +33,10 @@ public class PedidoClienteService {
             pedidoCliente.setPedidoClienteId(pedidoDetails.getPedidoClienteId());
             pedidoCliente.setMesaAsignada(pedidoDetails.getMesaAsignada());
             pedidoCliente.setTiempoPreparacion(pedidoDetails.getTiempoPreparacion());
-            pedidoCliente.setEstado(pedidoDetails.getEstado());
-            pedidoCliente.setExpress(pedidoDetails.getExpress());
-            pedidoCliente.setEmpleado(pedidoDetails.getEmpleado());
-            pedidoCliente.setCliente(pedidoDetails.getCliente());
-            pedidoCliente.setMenu(pedidoDetails.getMenu());
+            pedidoCliente.setClienteId(pedidoDetails.getClienteId());
+            pedidoCliente.setExpressId(pedidoDetails.getExpressId());
+            pedidoCliente.setEmpleadoId(pedidoDetails.getEmpleadoId());
+            pedidoCliente.setMenuId(pedidoDetails.getMenuId());
             return pedidoClienteRepository.save(pedidoCliente);
         }
         return null;
