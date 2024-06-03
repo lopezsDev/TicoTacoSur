@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -17,5 +14,8 @@ public class ProvinciaModel {
 
     @Column(name = "D_PROVINCIA")
     private String provincia;
+
+    @OneToMany(mappedBy = "provinciaId")
+    private CantonModel cantonId;
 }
 
