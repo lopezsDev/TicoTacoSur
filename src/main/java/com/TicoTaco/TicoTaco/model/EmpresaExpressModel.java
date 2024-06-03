@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -21,6 +18,7 @@ public class EmpresaExpressModel {
     @Column(name = "C_CONTACTO")
     private int contactoId;
 
-    @Column(name = "C_DIRECCION")
-    private int direccionId;
+    @OneToOne
+    @JoinColumn(name = "C_DIRECCION", nullable = false)
+    private DireccionModel direccionId;
 }
