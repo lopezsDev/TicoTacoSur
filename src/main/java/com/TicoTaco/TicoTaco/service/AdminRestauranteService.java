@@ -40,8 +40,10 @@ public class AdminRestauranteService {
         if (adminRestaurante != null) {
             adminRestaurante.setGanancias(adminRestauranteDetails.getGanancias());
             adminRestaurante.setPerdidas(adminRestauranteDetails.getPerdidas());
-            adminRestaurante.setSucursal(adminRestauranteDetails.getSucursal());
-            adminRestaurante.setCostosOperativos(adminRestauranteDetails.getCostosOperativos());
+            adminRestaurante.setAdminId(adminRestauranteDetails.getAdminId());
+            adminRestaurante.setPlanillaId(adminRestaurante.getPlanillaId());
+            adminRestaurante.setSucursalId(adminRestauranteDetails.getSucursalId());
+            adminRestaurante.setCostosoperativosId(adminRestauranteDetails.getCostosoperativosId());
 
             return adminRestauranteRepository.save(adminRestaurante);
         } else {

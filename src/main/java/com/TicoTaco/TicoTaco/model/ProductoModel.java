@@ -37,4 +37,7 @@ public class ProductoModel {
 
     @OneToMany(mappedBy = "detalleFacturaId")
     private Set<DetalleFacturaProductoModel> detalleFactura;
+
+    @ManyToOne(mappedBy = "productoId")
+    private Set<BodegaModel> bodegaId;
 }
