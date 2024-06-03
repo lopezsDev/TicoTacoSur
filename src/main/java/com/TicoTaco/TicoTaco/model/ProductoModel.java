@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Entity
@@ -25,12 +26,12 @@ public class ProductoModel {
     @Column(name = "M_PRECIO")
     private BigDecimal precio;
 
-    @Column(name = "C_MONEDA")
-    private long monedaId;
+    @Column(name = "F_VENCIMIENTO")
+    private Date vencimiento;
 
-    @Column(name = "C_TIPO_PRODUCTO")
-    private long tipoProductoId;
+    @Column(name = "C_CATEGORIA")
+    private long categoriaId;
 
-    @Column(name = "C_PROVEEDOR")
-    private long proveedorId;
+    @Column(name = "C_MEDIDA")
+    private long medidaId;
 }
