@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.boot.registry.selector.spi.StrategyCreator;
 
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "DIRECCION")
@@ -17,6 +19,17 @@ public class DireccionModel {
     @Column(name = "D_DIRECCION_ESPECIFICA")
     private String direccionEspecifica;
 
-    @Column(name = "C_DISTRITO")
-    private int distritoId;
+    @ManyToOne
+    @JoinColumn(name = "C_DISTRITO", nullable = false)
+    private DistritoModel distritoId;
+
+    @OneToMany(mappedBy = "direccionId")
+    private Set<ClienteDireccionModel> clienteDireccionId;
+
+    @OneToOne(mappedBy = "direccionId")
+    private Set<ProveedorModel> proveedorDireccion;
+
+    @OneToOne(mappedBy = "direccionId")
+    private Set<SucursalModel> sucursalDireccion;
+
 }
