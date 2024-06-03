@@ -17,5 +17,8 @@ public class BonificacionModel {
 
     @Column(name = "D_NOMBRE_BONIFICACION")
     private String nombreBonificacion;
+
+    @Column(name = "M_BONIFICACION")
+    private String montobonificacion;
 }
 

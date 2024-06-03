@@ -36,7 +36,7 @@ public class DetallePedidoProveedorService {
         if (detallePedidoProveedor != null) {
             detallePedidoProveedor.setCantidad(detallePedidoProveedorDetails.getCantidad());
             detallePedidoProveedor.setPrecioUnitario(detallePedidoProveedorDetails.getPrecioUnitario());
-            detallePedidoProveedor.setBodega(detallePedidoProveedorDetails.getBodega());
+
 
             return detallePedidoProveedorRepository.save(detallePedidoProveedor);
         } else {

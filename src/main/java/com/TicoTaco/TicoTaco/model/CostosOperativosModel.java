@@ -15,7 +15,20 @@ public class CostosOperativosModel {
     @Column(name = "C_COSTOS_OPERATIVOS")
     private Long costosOperativosId;
 
-    @Column(name = "D_NOMBRE_COSTOS_OPERATIVOS")
-    private String nombreCostosOperativos;
+    @Column(name = "F_DIA_PAGO")
+    private java.time.LocalDateTime diapago;
+
+    @Column(name = "M_COSTE")
+    private int costodia;
+
+    @Column(name = "D_DESCRIPCION")
+    private String descripcion;
+
+    @Column(name = "C_TIPO_COSTO_OPERATIVO")
+    private String tipocosto;
+
+    @Column(name = "C_MONEDA")
+    private int tmoneda;
+
 }
 

@@ -21,7 +21,5 @@ public class DetallePedidoProveedorModel {
     @Column(name = "M_PRECIO_UNITARIO")
     private double precioUnitario;
 
-    @Column(name = "C_BODEGA")
-    private int bodega;
 }
 
