@@ -34,7 +34,10 @@ public class ProveedorService {
         ProveedorModel proveedor = proveedorRepository.findById(id).orElse(null);
 
         if (proveedor != null) {
+            proveedor.setProveedorId(proveedorDetails.getProveedorId());
             proveedor.setNombreProveedor(proveedorDetails.getNombreProveedor());
+            proveedor.setDiasentrega(proveedorDetails.getDiasentrega());
+            proveedor.setDireccion(proveedorDetails.getDireccion());
             proveedor.setContactoId(proveedorDetails.getContactoId());
 
             return proveedorRepository.save(proveedor);
