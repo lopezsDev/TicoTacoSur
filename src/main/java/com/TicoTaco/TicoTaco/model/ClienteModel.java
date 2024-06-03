@@ -11,6 +11,7 @@ public class ClienteModel {
 
     @Id
     @Column(name = "C_CLIENTE")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long clienteId;
 
     @Column(name = "D_NOMBRE_CLIENTE")
@@ -19,23 +20,17 @@ public class ClienteModel {
     @Column(name = "D_APELLIDO_CLIENTE")
     private String apellidoCliente;
 
-    @Column(name = "C_CONTACTO")
-    private long contactoId;
-
-    @Column(name = "C_FRECUENCIA")
-    private long frecuenciaId;
-
     @ManyToOne
     @JoinColumn(name = "frecuenciaId", nullable = false)
-    private FrecuenciaModel frecuencia;
+    private FrecuenciaModel frecuenciaId;
 
     @OneToMany(mappedBy = "clienteId")
-    private Set<PedidoClienteModel> pedidos;
+    private Set<PedidoClienteModel> pedidosClienteId;
 
-    @OneToMany(mappedBy = "cliente")
-    private Set<ClienteDireccionModel> direcciones;
+    @OneToMany(mappedBy = "clienteId")
+    private Set<ClienteDireccionModel> direccionId;
 
     @OneToMany(mappedBy = "contacto")
-    private Set<ClienteContactoModel> contacto;
+    private Set<ClienteContactoModel> contactoId;
 
 }

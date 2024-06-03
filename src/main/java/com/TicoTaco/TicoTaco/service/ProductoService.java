@@ -38,8 +38,8 @@ public class ProductoService {
             producto.setDescripcion(productoDetails.getDescripcion());
             producto.setPrecio(productoDetails.getPrecio());
             producto.setVencimiento(productoDetails.getVencimiento());
-            producto.setCategoria(productoDetails.getCategoria());
-            producto.setMedida(productoDetails.getMedida());
+            producto.setCategoriaId(productoDetails.getCategoriaId());
+            producto.setMedidaId(productoDetails.getMedidaId());
 
             return productoRepository.save(producto);
         } else {

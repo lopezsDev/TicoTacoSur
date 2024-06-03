@@ -23,39 +23,24 @@ public class PedidoClienteModel {
     @Column(name = "F_HORA_PEDIDO")
     private Date horaPedido;
 
-    @Column(name = "C_ESTADO")
-    private long estadoId;
-
-    @Column(name = "C_EXPRESS")
-    private long expressId;
-
-    @Column(name = "C_CLIENTE")
-    private long clienteId;
-
-    @Column(name = "C_EMPLEADO")
-    private long empleadoId;
-
-    @Column(name = "C_MENU")
-    private long menuId;
-
     @ManyToOne
     @JoinColumn(name = "estadoId", nullable = false)
-    private EstadoPedidoModel estado;
+    private EstadoPedidoModel estadoId;
 
     @ManyToOne
     @JoinColumn(name = "expressId", nullable = false)
-    private ExpressModel express;
+    private ExpressModel expressId;
 
     @ManyToOne
     @JoinColumn(name = "empleadoId", nullable = false)
-    private EmpleadoModel empleado;
+    private EmpleadoModel empleadoId;
 
     @ManyToOne
     @JoinColumn(name = "clienteId", nullable = false)
-    private ClienteModel cliente;
+    private ClienteModel clienteId;
 
     @ManyToOne
     @JoinColumn(name = "menuId", nullable = false)
-    private MenuModel menu;
+    private MenuModel menuId;
 }
 

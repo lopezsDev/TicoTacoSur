@@ -20,6 +20,6 @@ public class FrecuenciaModel {
     private int tipoCliente;
 
     @OneToMany(mappedBy = "frecuenciaId")
-    private Set<ClienteModel> clientes;
+    private Set<ClienteModel> clienteId;
 
 }

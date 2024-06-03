@@ -60,7 +60,7 @@ public class ClienteService {
         if (cliente != null) {
             cliente.setNombreCliente(clienteDetails.getNombreCliente());
             cliente.setApellidoCliente(clienteDetails.getApellidoCliente());
-            cliente.setFrecuencia(clienteDetails.getFrecuencia());
+            cliente.setFrecuenciaId(clienteDetails.getFrecuenciaId());
             return clienteRepository.save(cliente);
         }
         return null;

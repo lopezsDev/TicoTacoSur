@@ -1,10 +1,8 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.boot.registry.selector.spi.StrategyCreator;
 
 @Data
 @Entity
@@ -13,6 +11,7 @@ public class DireccionModel {
 
     @Id
     @Column(name = "C_DIRECCION")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long direccionId;
 
     @Column(name = "D_DIRECCION_ESPECIFICA")

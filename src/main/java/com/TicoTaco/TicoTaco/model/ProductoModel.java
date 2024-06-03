@@ -27,20 +27,14 @@ public class ProductoModel {
     @Column(name = "F_VENCIMIENTO")
     private Date vencimiento;
 
-    @Column(name = "C_CATEGORIA")
-    private long categoriaId;
-
-    @Column(name = "C_MEDIDA")
-    private long medidaId;
-
     @ManyToOne
     @JoinColumn(name = "categoriaId", nullable = false)
-    private CategoriaModel categoria;
+    private CategoriaModel categoriaId;
 
     @ManyToOne
     @JoinColumn(name = "medidaId", nullable = false)
-    private UnidadMedidaModel medida;
+    private UnidadMedidaModel medidaId;
 
-    @OneToMany(mappedBy = "productoId")
-    private Set<DetallesFacturaModel> detallesFactura;
+    @OneToMany(mappedBy = "detalleFacturaId")
+    private Set<DetalleFacturaProductoModel> detalleFactura;
 }
