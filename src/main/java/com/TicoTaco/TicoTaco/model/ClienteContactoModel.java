@@ -14,10 +14,10 @@ public class ClienteContactoModel {
     @ManyToOne
     @MapsId("clienteId")
     @JoinColumn(name = "C_CLIENTE")
-    private ClienteModel cliente;
+    private ClienteModel clienteId;
 
     @ManyToOne
     @MapsId("contactoId")
     @JoinColumn(name = "C_CONTACTO")
-    private ContactoModel contacto;
+    private ContactoModel contactoId;
 }

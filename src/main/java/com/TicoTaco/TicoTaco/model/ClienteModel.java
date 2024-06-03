@@ -25,12 +25,12 @@ public class ClienteModel {
     private FrecuenciaModel frecuenciaId;
 
     @OneToMany(mappedBy = "clienteId")
-    private Set<PedidoClienteModel> pedidosClienteId;
+    private Set<PedidoClienteModel> pedidoClienteId;
 
     @OneToMany(mappedBy = "clienteId")
     private Set<ClienteDireccionModel> direccionId;
 
-    @OneToMany(mappedBy = "contacto")
+    @OneToMany(mappedBy = "contactoId")
     private Set<ClienteContactoModel> contactoId;
 
 }
