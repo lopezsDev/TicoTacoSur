@@ -26,9 +26,6 @@ public class FacturaModel {
     @Column(name = "C_SUCURSAL")
     private long sucursalId;
 
-    @Column(name = "C_PEDIDO_CLIENTE")
-    private long pedidoClienteId;
-
     @Column(name = "C_MONEDA")
     private long monedaId;
 
@@ -39,11 +36,11 @@ public class FacturaModel {
     private CajasModel caja;
 
     @ManyToOne
-    @JoinColumn(name = "C_SUCURSAL", insertable = false, updatable = false)
+    @JoinColumn(name = "C_SUCURSAL", nullable = false)
     private SucursalModel sucursal;
 
     @ManyToOne
-    @JoinColumn(name = "C_PEDIDO_CLIENTE", insertable = false, updatable = false)
+    @JoinColumn(name = "C_PEDIDO_CLIENTE", nullable = false)
     private PedidoClienteModel pedidoCliente;
 }
 
