@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -34,4 +31,15 @@ public class ProductoModel {
 
     @Column(name = "C_MEDIDA")
     private long medidaId;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private CategoriaModel categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "medida_id", nullable = false)
+    private UnidadMedidaModel medida;
+
+    @OneToMany(mappedBy = "producto")
+    private Set<DetalleFactura> detallesFactura;
 }
