@@ -11,6 +11,7 @@ public class PedidoClienteModel {
 
     @Id
     @Column(name = "C_PEDIDO_CLIENTE")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long pedidoClienteId;
 
     @Column(name = "N_MESA_ASIGNADA")
@@ -26,35 +27,35 @@ public class PedidoClienteModel {
     private long estadoId;
 
     @Column(name = "C_EXPRESS")
-    private long cexpress;
+    private long expressId;
 
     @Column(name = "C_CLIENTE")
     private long clienteId;
 
     @Column(name = "C_EMPLEADO")
-    private long idempleado;
+    private long empleadoId;
 
     @Column(name = "C_MENU")
-    private long cmenu;
+    private long menuId;
 
     @ManyToOne
-    @JoinColumn(name = "estado_Id", nullable = false)
+    @JoinColumn(name = "estadoId", nullable = false)
     private EstadoPedidoModel estado;
 
     @ManyToOne
-    @JoinColumn(name = "express_Id", nullable = false)
+    @JoinColumn(name = "expressId", nullable = false)
     private ExpressModel express;
 
     @ManyToOne
-    @JoinColumn(name = "empleado_Id", nullable = false)
+    @JoinColumn(name = "empleadoId", nullable = false)
     private EmpleadoModel empleado;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_Id", nullable = false)
+    @JoinColumn(name = "clienteId", nullable = false)
     private ClienteModel cliente;
 
     @ManyToOne
-    @JoinColumn(name = "menu_Id", nullable = false)
+    @JoinColumn(name = "menuId", nullable = false)
     private MenuModel menu;
 }
 
