@@ -37,9 +37,9 @@ public class ProductoService {
             producto.setNombreProducto(productoDetails.getNombreProducto());
             producto.setDescripcion(productoDetails.getDescripcion());
             producto.setPrecio(productoDetails.getPrecio());
-            producto.setMonedaId(productoDetails.getMonedaId());
-            producto.setTipoProductoId(productoDetails.getTipoProductoId());
-            producto.setProveedorId(productoDetails.getProveedorId());
+            producto.setVencimiento(productoDetails.getVencimiento());
+            producto.setCategoria(productoDetails.getCategoria());
+            producto.setMedida(productoDetails.getMedida());
 
             return productoRepository.save(producto);
         } else {
