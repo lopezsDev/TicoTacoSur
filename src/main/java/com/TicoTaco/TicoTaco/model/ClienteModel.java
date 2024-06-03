@@ -35,4 +35,7 @@ public class ClienteModel {
     @OneToMany(mappedBy = "cliente")
     private Set<ClienteDireccionModel> direcciones;
 
+    @OneToMany(mappedBy = "contacto")
+    private Set<ClienteContactoModel> contacto;
+
 }
