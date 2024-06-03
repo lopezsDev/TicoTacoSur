@@ -34,13 +34,13 @@ public class ProductoModel {
     private long medidaId;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_id", nullable = false)
+    @JoinColumn(name = "categoriaId", nullable = false)
     private CategoriaModel categoria;
 
     @ManyToOne
-    @JoinColumn(name = "medida_id", nullable = false)
+    @JoinColumn(name = "medidaId", nullable = false)
     private UnidadMedidaModel medida;
 
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "productoId")
     private Set<DetallesFacturaModel> detallesFactura;
 }
