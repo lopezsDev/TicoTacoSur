@@ -42,7 +42,7 @@ public class PedidoClienteService {
         return null;
     }
 
-    public void deletePedido(Integer id) {
+    public void deletePedido(Long id) {
         pedidoClienteRepository.deleteById(id);
     }
 }
