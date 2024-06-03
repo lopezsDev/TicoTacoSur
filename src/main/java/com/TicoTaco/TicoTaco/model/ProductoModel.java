@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -41,5 +42,5 @@ public class ProductoModel {
     private UnidadMedidaModel medida;
 
     @OneToMany(mappedBy = "producto")
-    private Set<DetalleFactura> detallesFactura;
+    private Set<DetallesFacturaModel> detallesFactura;
 }
