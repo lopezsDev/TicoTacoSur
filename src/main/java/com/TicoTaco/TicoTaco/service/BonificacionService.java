@@ -39,7 +39,7 @@ public class BonificacionService {
 
         if (bonificacion != null) {
             bonificacion.setNombreBonificacion(bonificacionDetails.getNombreBonificacion());
-
+            bonificacion.setMontobonificacion(bonificacionDetails.getMontobonificacion());
             return bonificacionRepository.save(bonificacion);
         } else {
             return null; // Manejo de error si no se encuentra el elemento
