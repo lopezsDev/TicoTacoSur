@@ -1,10 +1,9 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,4 +19,8 @@ public class DistritoModel {
 
     @Column(name = "C_CANTON")
     private int cantonId;
+
+    @OneToMany(mappedBy = "distritoId")
+    private Set<DireccionModel> direccion;
+
 }
