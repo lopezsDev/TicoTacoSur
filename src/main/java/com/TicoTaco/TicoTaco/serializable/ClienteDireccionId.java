@@ -11,5 +11,4 @@ public class ClienteDireccionId implements Serializable {
     private long clienteId;
     private long direccionId;
 
-
 }
