@@ -29,4 +29,7 @@ public class DireccionModel {
     @OneToOne(mappedBy = "direccionId")
     private Set<ProveedorModel> proveedorDireccion;
 
+    @OneToOne(mappedBy = "direccionId")
+    private Set<SucursalModel> sucursalDireccion;
+
 }

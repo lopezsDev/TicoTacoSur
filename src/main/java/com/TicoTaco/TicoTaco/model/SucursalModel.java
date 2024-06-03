@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -18,8 +15,9 @@ public class SucursalModel {
     @Column(name = "D_NOMBRE_SUCURSAL")
     private String nombreSucursal;
 
-    @Column(name = "C_DIRECCION")
-    private long direccionId;
+    @OneToOne
+    @JoinColumn(name = "C_DIRECCION", nullable = false)
+    private DireccionModel direccionId;
 
     @Column(name = "C_CONTACTO")
     private long contacto;

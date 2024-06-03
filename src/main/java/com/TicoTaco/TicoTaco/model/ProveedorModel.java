@@ -25,7 +25,7 @@ public class ProveedorModel {
 
     @OneToOne
     @JoinColumn(name = "C_DIRECCION", nullable = false)
-    private int direccionId;
+    private DireccionModel direccionId;
 
 }
 
