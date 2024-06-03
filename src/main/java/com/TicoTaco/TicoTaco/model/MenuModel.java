@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 
@@ -33,5 +30,18 @@ public class MenuModel {
 
     @Column(name = "C_PRODUCTO")
     private long productoId;
+
+    @ManyToOne
+    @JoinColumn(name = "C_MONEDA", insertable = false, updatable = false)
+    private MonedaModel moneda;
+
+    @ManyToOne
+    @JoinColumn(name = "C_COMBO", insertable = false, updatable = false)
+    private ComboModel combo;
+
+    @ManyToOne
+    @JoinColumn(name = "C_PRODUCTO", insertable = false, updatable = false)
+    private ProductoModel producto;
 }
+
 
