@@ -27,8 +27,7 @@ public class EmpleadoModel {
     @Column(name = "C_PUESTO")
     private int puestoId;
 
-    @Column(name = "C_SUCURSAL")
-    private int sucursalId;
+
 
     @Column(name = "C_PLANILLA")
     private int planillaId;

@@ -30,6 +30,7 @@ public class PedidoClienteService {
     public PedidoClienteModel updatePedido(Long id, PedidoClienteModel pedidoDetails) {
         PedidoClienteModel pedidoCliente = pedidoClienteRepository.findById(id).orElse(null);
         if (pedidoCliente != null) {
+            pedidoCliente.setPedidoClienteId(pedidoDetails.getPedidoClienteId());
             pedidoCliente.setMesaAsignada(pedidoDetails.getMesaAsignada());
             pedidoCliente.setTiempoPreparacion(pedidoDetails.getTiempoPreparacion());
             pedidoCliente.setEstado(pedidoDetails.getEstado());
