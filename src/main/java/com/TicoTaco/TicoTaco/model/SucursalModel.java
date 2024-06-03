@@ -2,6 +2,7 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.util.List;
 
 import javax.naming.Name;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class SucursalModel {
 
     @OneToOne
     @JoinColumn(name = "C_DIRECCION", nullable = false)
-    private DireccionModel direccionId;
+    private DireccionModel direccion;
 
     @Column(name = "C_CAJA")
     private long caja;
@@ -28,9 +29,13 @@ public class SucursalModel {
     @Column(name = "C_CONTACTO")
     private long contacto;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "bodegaId")
     private Set<BodegaModel> bodegaId;
 
+=======
+>>>>>>> b2ebd1f1be793cae8a039a1c8e5b11c8f90db833
     @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL)
     private List<FacturaModel> facturas;
 }
+

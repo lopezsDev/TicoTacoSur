@@ -1,6 +1,9 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
@@ -18,21 +21,12 @@ public class AdminRestauranteModel {
     @Column(name = "M_PERDIDAS")
     private double perdidas;
 
-    @ManyToOne
-    @MapsId("ADMIN_RESTAURANTE")
-    @JoinColumn(name = "C_PLANILLA", nullable = false)
-    private PlanillaModel planillaId;
+    @Column(name = "C_PLANILLA")
+    private int planilla;
 
-    @ManyToOne
-    @JoinColumn(name = "C_SUCURSAL", nullable = false)
-    private SucursalModel sucursal;
+    @Column(name = "C_SUCURSAL")
+    private int sucursal;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PLANILLA", nullable = false)
-    private PlanillaModel planilla;
-
-    @ManyToOne
-    @JoinColumn(name = "C_COSTOS_OPERATIVOS", nullable = false)
-    private CostosOperativosModel costosOperativos;
-
+    @Column(name = "C_COSTOS_OPERATIVOS")
+    private int costosOperativos;
 }
