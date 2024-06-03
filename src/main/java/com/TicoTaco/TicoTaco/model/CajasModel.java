@@ -31,4 +31,9 @@ public class CajasModel {
     @OneToOne
     @JoinColumn(name = "C_FACTURA", nullable = false)
     private FacturaModel factura;
+
+    @ManyToOne
+    @JoinColumn(name = "C_FORMA_PAGO", nullable = false)
+    private FormaPagoModel formaPago;
+    
 }
