@@ -17,12 +17,12 @@ public class ClienteDireccionModel {
 
     @ManyToOne
     @MapsId("clienteId")
-    @JoinColumn(name = "C_CLIENTE")
+    @JoinColumn(name = "C_CLIENTE", nullable = false)
     public ClienteModel clienteId;
 
     @ManyToOne
     @MapsId("direccionId")
-    @JoinColumn(name = "C_DIRECCION")
+    @JoinColumn(name = "C_DIRECCION", nullable = false)
     public DireccionModel direccionId;
 }
 

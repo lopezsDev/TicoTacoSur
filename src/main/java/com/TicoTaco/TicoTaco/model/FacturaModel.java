@@ -25,7 +25,7 @@ public class FacturaModel {
     private long sucursalId;
 
     @ManyToOne
-    @JoinColumn(name = "C_PEDIDO_CLIENTE")
+    @JoinColumn(name = "C_PEDIDO_CLIENTE", nullable = false)
     private PedidoClienteModel pedidoClienteId;
 
     @Column(name = "C_MONEDA")

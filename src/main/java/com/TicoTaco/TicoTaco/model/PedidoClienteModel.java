@@ -22,23 +22,23 @@ public class PedidoClienteModel {
     private Data tiempoPreparacion;
 
     @ManyToOne
-    @JoinColumn(name = "estadoId", nullable = false)
+    @JoinColumn(name = "C_ESTADO", nullable = false)
     private EstadoPedidoModel estadoId;
 
     @ManyToOne
-    @JoinColumn(name = "expressId", nullable = false)
+    @JoinColumn(name = "C_EXPRESS", nullable = false)
     private ExpressModel expressId;
 
     @ManyToOne
-    @JoinColumn(name = "empleadoId", nullable = false)
+    @JoinColumn(name = "C_EMPLEADO", nullable = false)
     private EmpleadoModel empleadoId;
 
     @ManyToOne
-    @JoinColumn(name = "clienteId", nullable = false)
+    @JoinColumn(name = "C_CLIENTE", nullable = false)
     private ClienteModel clienteId;
 
     @ManyToOne
-    @JoinColumn(name = "menuId", nullable = false)
+    @JoinColumn(name = "C_MENU", nullable = false)
     private MenuModel menuId;
 
     @OneToMany(mappedBy = "pedidoClienteId")
