@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -23,10 +20,12 @@ public class ProveedorModel {
     @Column(name = "F_DIAS_ENTREGA")
     private Date diasentrega;
 
-    @Column(name = "C_DIRECCION")
-    private int direccion;
-
     @Column(name = "C_CONTACTO")
     private long contactoId;
+
+    @OneToOne
+    @JoinColumn(name = "C_DIRECCION", nullable = false)
+    private int direccionId;
+
 }
 

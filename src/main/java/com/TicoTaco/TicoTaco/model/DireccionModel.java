@@ -25,4 +25,8 @@ public class DireccionModel {
 
     @OneToMany(mappedBy = "direccionId")
     private Set<ClienteDireccionModel> clienteDireccionId;
+
+    @OneToOne(mappedBy = "direccionId")
+    private Set<ProveedorModel> proveedorDireccion;
+
 }
