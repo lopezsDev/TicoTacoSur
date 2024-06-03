@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
 @Data
@@ -27,8 +24,9 @@ public class FacturaModel {
     @Column(name = "C_SUCURSAL")
     private long sucursalId;
 
-    @Column(name = "C_PEDIDO_CLIENTE")
-    private long pedidoClienteId;
+    @ManyToOne
+    @JoinColumn(name = "C_PEDIDO_CLIENTE")
+    private PedidoClienteModel pedidoClienteId;
 
     @Column(name = "C_MONEDA")
     private long monedaId;

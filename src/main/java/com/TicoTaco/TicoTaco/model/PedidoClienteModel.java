@@ -3,6 +3,7 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -19,9 +20,6 @@ public class PedidoClienteModel {
 
     @Column(name = "F_TIEMPO_PREPARACION")
     private Data tiempoPreparacion;
-
-    @Column(name = "F_HORA_PEDIDO")
-    private Date horaPedido;
 
     @ManyToOne
     @JoinColumn(name = "estadoId", nullable = false)
@@ -42,5 +40,8 @@ public class PedidoClienteModel {
     @ManyToOne
     @JoinColumn(name = "menuId", nullable = false)
     private MenuModel menuId;
+
+    @OneToMany(mappedBy = "pedidoClienteId")
+    private Set<FacturaModel> facturaId;
 }
 
