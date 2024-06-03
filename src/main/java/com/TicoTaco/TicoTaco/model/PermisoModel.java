@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Entity
 @Table(name = "PERMISOS")
@@ -15,6 +17,18 @@ public class PermisoModel {
     @Column(name = "C_PERMISO")
     private long permisoId;
 
-    @Column(name = "D_PERMISO")
-    private String permiso;
+    @Column(name = "F_INICIO")
+    private Date fechainicio;
+
+    @Column(name = "F_FIN")
+    private Date fechafinal;
+
+    @Column(name = "D_MOTIVO")
+    private String motivo;
+
+    @Column(name = "T_ESTADO")
+    private String estado;
+
+    @Column(name = "C_TIPO_PERMISO")
+    private String tipo;
 }
