@@ -1,10 +1,9 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -15,13 +14,16 @@ public class MonedaModel {
     @Column(name = "C_MONEDA")
     private long monedaId;
 
-    @Column(name = "D_NOMBRE_MONEDA")
-    private String nombreMoneda;
+    @Column(name = "T_DIVISA")
+    private double moneda;
 
-    @Column(name = "D_SIMBOLO")
-    private String simbolo;
+    @OneToMany(mappedBy = "monedaId")
+    private Set<MenuModel> menus;
 
-    @Column(name = "M_TIPO_CAMBIO")
-    private double tipoCambio;
+    @OneToMany(mappedBy = "monedaId")
+    private Set<CostosOperativosModel> costosOperativosId;
+
+    @OneToMany(mappedBy = "monedaId")
+    private Set<FacturaModel> facturaModels;
 }
 

@@ -20,30 +20,19 @@ public class FacturaModel {
     @Column(name = "M_MONTO_TOTAL")
     private double montoTotal;
 
-    @Column(name = "C_DETALLE_FACTURA")
-    private long detalleFacturaId;
+    @OneToMany
+    @JoinColumn(name = "C_DETALLE_FACTURA", nullable = false)
+    private DetallesFacturaModel detalleFacturaId;
 
-    @Column(name = "C_SUCURSAL")
+    @JoinColumn(name = "C_SUCURSAL")
     private long sucursalId;
 
-    @Column(name = "C_PEDIDO_CLIENTE")
-    private long pedidoClienteId;
-
-    @Column(name = "C_MONEDA")
-    private long monedaId;
-
-    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
-    private List<PedidoClienteModel> pedidosClientes;
-
-    @OneToOne(mappedBy = "factura", cascade = CascadeType.ALL)
-    private CajasModel caja;
+    @OneToMany
+    @JoinColumn(name = "C_MONEDA", nullable = false)
+    private MonedaModel monedaId;
 
     @ManyToOne
-    @JoinColumn(name = "C_SUCURSAL", insertable = false, updatable = false)
-    private SucursalModel sucursal;
-
-    @ManyToOne
-    @JoinColumn(name = "C_PEDIDO_CLIENTE", insertable = false, updatable = false)
+    @JoinColumn(name = "C_PEDIDO_CLIENTE", nullable = false)
     private PedidoClienteModel pedidoCliente;
 }
 

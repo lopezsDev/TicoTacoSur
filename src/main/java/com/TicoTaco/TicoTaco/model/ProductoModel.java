@@ -35,6 +35,10 @@ public class ProductoModel {
     @JoinColumn(name = "medidaId", nullable = false)
     private UnidadMedidaModel medidaId;
 
-    @OneToMany(mappedBy = "detalleFacturaId")
-    private Set<DetalleFacturaProductoModel> detalleFactura;
+    /*
+    @OneToMany(mappedBy = "detalleFacturaProductoId")
+    private Set<DetalleFacturaProductoModel> detalleFactura;*/
+
+    @OneToMany(mappedBy = "menuId")
+    private Set<MenuModel> menuId;
 }

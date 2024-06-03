@@ -21,4 +21,6 @@ public class EmpresaExpressModel {
     @OneToOne
     @JoinColumn(name = "C_DIRECCION", nullable = false)
     private DireccionModel direccionId;
+
+
 }

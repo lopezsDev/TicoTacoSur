@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -27,8 +24,8 @@ public class CostosOperativosModel {
     @Column(name = "C_TIPO_COSTO_OPERATIVO")
     private String tipocosto;
 
-    @Column(name = "C_MONEDA")
-    private int tmoneda;
+    @JoinColumn(name = "C_MONEDA", nullable = false)
+    private MonedaModel monedaId;
 
 }
 

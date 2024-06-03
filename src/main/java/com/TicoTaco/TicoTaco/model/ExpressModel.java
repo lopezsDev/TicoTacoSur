@@ -1,11 +1,9 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -25,10 +23,15 @@ public class ExpressModel {
     @Column(name = "F_HORA_ENTREGA")
     private Date horaEntrega;
 
-    @Column(name = "C_EMPRESA_EXPRESS")
-    private long empresaExpressId;
+    @ManyToOne
+    @JoinColumn(name = "C_EMPRESA_EXPRESS", nullable = false)
+    private EmpresaExpressModel empresaExpressId;
 
-    @Column(name = "C_CONTACTO")
-    private long contactoId;
+    @ManyToOne
+    @JoinColumn(name = "C_CONTACTO", nullable = false)
+    private ContactoModel contactoId;
+
+    @OneToMany(mappedBy = "expressId")
+    private Set<PedidoClienteModel> pedidosId;
 }
 

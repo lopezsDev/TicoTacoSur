@@ -3,6 +3,7 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Data
 @Entity
@@ -22,26 +23,20 @@ public class MenuModel {
     @Column(name = "M_PRECIO")
     private BigDecimal precio;
 
-    @Column(name = "C_MONEDA")
-    private long monedaId;
-
-    @Column(name = "C_COMBO")
-    private long comboId;
-
-    @Column(name = "C_PRODUCTO")
-    private long productoId;
+    @ManyToOne
+    @JoinColumn(name = "C_MONEDA", updatable = false)
+    private MonedaModel monedaId;
 
     @ManyToOne
-    @JoinColumn(name = "C_MONEDA", insertable = false, updatable = false)
-    private MonedaModel moneda;
+    @JoinColumn(name = "C_COMBO", updatable = false)
+    private ComboModel comboId;
 
     @ManyToOne
-    @JoinColumn(name = "C_COMBO", insertable = false, updatable = false)
-    private ComboModel combo;
+    @JoinColumn(name = "C_PRODUCTO", updatable = false)
+    private ProductoModel productoId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PRODUCTO", insertable = false, updatable = false)
-    private ProductoModel producto;
+    @OneToMany(mappedBy = "menuId")
+    private Set<PedidoClienteModel> pedidosId;
 }
 
 
