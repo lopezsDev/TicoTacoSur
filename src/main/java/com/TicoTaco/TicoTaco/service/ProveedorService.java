@@ -37,7 +37,7 @@ public class ProveedorService {
             proveedor.setProveedorId(proveedorDetails.getProveedorId());
             proveedor.setNombreProveedor(proveedorDetails.getNombreProveedor());
             proveedor.setDiasentrega(proveedorDetails.getDiasentrega());
-            proveedor.setDireccion(proveedorDetails.getDireccion());
+           proveedor.setDireccionId(proveedorDetails.getDireccionId());
             proveedor.setContactoId(proveedorDetails.getContactoId());
 
             return proveedorRepository.save(proveedor);
