@@ -17,10 +17,13 @@ public class DistritoModel {
     @Column(name = "D_DISTRITO")
     private String distritoNombre;
 
-    @Column(name = "C_CANTON")
-    private int cantonId;
+    @ManyToOne
+    @JoinColumn(name = "C_CANTON", nullable = false)
+    private CantonModel cantonId;
 
     @OneToMany(mappedBy = "distritoId")
     private Set<DireccionModel> direccion;
+
+
 
 }
