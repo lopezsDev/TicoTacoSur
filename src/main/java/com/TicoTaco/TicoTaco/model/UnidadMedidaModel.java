@@ -6,16 +6,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+
 @Data
 @Entity
-@Table(name = "TIPO_ENTREGA")
-public class TipoEntregaModel {
+@Table(name = "UNIDAD_MEDIDA")
+public class UnidadMedidaModel {
 
     @Id
-    @Column(name = "C_TIPO_ENTREGA")
-    private long tipoEntregaId;
+    @Column(name = "C_MEDIDA")
+    private long medida;
 
-    @Column(name = "T_ENTREGA")
-    private String entrega;
+    @Column(name = "D_ABREVIATURA")
+    private String abreviatura;
 }
-

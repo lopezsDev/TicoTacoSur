@@ -16,15 +16,21 @@ public class PlanillaModel {
     @Column(name = "C_PLANILLA")
     private long planillaId;
 
-    @Column(name = "F_FECHA_PLANILLA")
-    private Date fechaPlanilla;
+    @Column(name = "C_HORAS_EXTRAS")
+    private int horasextras;
 
-    @Column(name = "C_SUCURSAL")
-    private long sucursalId;
+    @Column(name = "M_SALARIO_TOTAL")
+    private int salariototal;
 
-    @Column(name = "C_EMPLEADO")
-    private long empleadoId;
+    @Column(name = "M_SALARIO_BASE")
+    private int salariobase;
 
-    @Column(name = "C_TIPO_PLANILLA")
-    private long tipoPlanillaId;
+    @Column(name = "F_FECHA_PAGO")
+    private Date fechapago;
+
+    @Column(name = "C_DEDUCCION")
+    private int deduccion;
+
+    @Column(name = "C_BONIFICACION")
+    private long bonificacion;
 }

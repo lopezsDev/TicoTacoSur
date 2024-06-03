@@ -26,7 +26,7 @@ public class ClienteModel {
     private long frecuenciaId;
 
     @ManyToOne
-    @JoinColumn(name = "frecuencia_id", nullable = false)
+    @JoinColumn(name = "frecuenciaId", nullable = false)
     private FrecuenciaModel frecuencia;
 
     @OneToMany(mappedBy = "clienteId")

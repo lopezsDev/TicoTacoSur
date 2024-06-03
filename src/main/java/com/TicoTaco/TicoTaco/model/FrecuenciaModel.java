@@ -1,10 +1,10 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Generated;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -12,9 +12,14 @@ import lombok.Data;
 public class FrecuenciaModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_FRECUENCIA")
     private long frecuenciaId;
 
     @Column(name = "T_TIPO_CLIENTE")
     private int tipoCliente;
+
+    @OneToMany(mappedBy = "frecuenciaId")
+    private Set<ClienteModel> clientes;
+
 }

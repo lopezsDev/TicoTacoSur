@@ -34,8 +34,11 @@ public class SucursalService {
         SucursalModel sucursal = sucursalRepository.findById(id).orElse(null);
 
         if (sucursal != null) {
+            sucursal.setSucursalId(sucursalDetails.getSucursalId());
             sucursal.setNombreSucursal(sucursalDetails.getNombreSucursal());
             sucursal.setDireccionId(sucursalDetails.getDireccionId());
+            sucursal.setCaja(sucursalDetails.getCaja());
+            sucursal.setContacto(sucursalDetails.getContacto());
             return sucursalRepository.save(sucursal);
         } else {
             return null;

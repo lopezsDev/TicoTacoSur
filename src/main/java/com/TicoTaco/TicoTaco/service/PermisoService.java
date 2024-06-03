@@ -34,7 +34,12 @@ public class PermisoService {
         PermisoModel permiso = permisoRepository.findById(id).orElse(null);
 
         if (permiso != null) {
-            permiso.setPermiso(permisoDetails.getPermiso());
+            permiso.setPermisoId(permisoDetails.getPermisoId());
+            permiso.setTipo(permisoDetails.getTipo());
+            permiso.setEstado(permisoDetails.getEstado());
+            permiso.setMotivo(permisoDetails.getMotivo());
+            permiso.setFechainicio(permisoDetails.getFechainicio());
+            permiso.setFechafinal(permisoDetails.getFechafinal());
 
             return permisoRepository.save(permiso);
         } else {

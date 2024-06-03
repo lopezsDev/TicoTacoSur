@@ -33,11 +33,13 @@ public class PlanillaService {
         PlanillaModel planilla = planillaRepository.findById(id).orElse(null);
 
         if (planilla != null) {
-            planilla.setFechaPlanilla(planillaDetails.getFechaPlanilla());
-            planilla.setSucursalId(planillaDetails.getSucursalId());
-            planilla.setEmpleadoId(planillaDetails.getEmpleadoId());
-            planilla.setTipoPlanillaId(planillaDetails.getTipoPlanillaId());
-
+            planilla.setPlanillaId(planilla.getPlanillaId());
+            planilla.setHorasextras(planillaDetails.getHorasextras());
+            planilla.setSalariototal(planillaDetails.getSalariototal());
+            planilla.setSalariobase(planillaDetails.getSalariobase());
+            planilla.setFechapago(planillaDetails.getFechapago());
+            planilla.setDeduccion(planillaDetails.getDeduccion());
+            planilla.setBonificacion(planillaDetails.getBonificacion());
             return planillaRepository.save(planilla);
         } else {
             return null;

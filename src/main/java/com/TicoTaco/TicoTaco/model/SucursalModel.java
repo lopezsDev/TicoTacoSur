@@ -20,8 +20,13 @@ public class SucursalModel {
     @Column(name = "C_DIRECCION")
     private long direccionId;
 
+    @OneToMany(mappedBy = "sucursaId", cascade = CascadeType.ALL)
+    private List<FacturaModel> facturaId;
 
-    @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL)
-    private List<FacturaModel> facturas;
+    @Column(name = "C_CONTACTO")
+    private long contacto;
 
+    @Column(name = "C_CAJA")
+    private long caja;
 }
+
