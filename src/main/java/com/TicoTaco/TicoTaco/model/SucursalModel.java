@@ -20,4 +20,10 @@ public class SucursalModel {
 
     @Column(name = "C_DIRECCION")
     private long direccionId;
+
+    @Column(name = "C_CONTACTO")
+    private long contacto;
+
+    @Column(name = "C_CAJA")
+    private long caja;
 }
