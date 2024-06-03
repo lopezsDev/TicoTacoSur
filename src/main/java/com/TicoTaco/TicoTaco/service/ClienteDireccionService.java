@@ -35,8 +35,8 @@ public class ClienteDireccionService {
         Optional<ClienteDireccionModel> optionalEntity = repository.findById(id);
         if (optionalEntity.isPresent()) {
             ClienteDireccionModel entity = optionalEntity.get();
-            entity.setCliente(entityDetails.getCliente());
-            entity.setDireccion(entityDetails.getDireccion());
+          entity.setClienteId(entityDetails.getClienteId());
+          entity.setDireccionId(entityDetails.getDireccionId());
             return repository.save(entity);
 
         }
