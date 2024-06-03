@@ -1,10 +1,8 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import java.util.Set;
 
 @Data
 @Entity
@@ -26,4 +24,15 @@ public class ClienteModel {
 
     @Column(name = "C_FRECUENCIA")
     private long frecuenciaId;
+
+    @ManyToOne
+    @JoinColumn(name = "frecuencia_id", nullable = false)
+    private FrecuenciaModel frecuencia;
+
+    @OneToMany(mappedBy = "clienteId")
+    private Set<PedidoClienteModel> pedidos;
+
+    @OneToMany(mappedBy = "cliente")
+    private Set<ClienteDireccionModel> direcciones;
+
 }

@@ -1,5 +1,8 @@
 package com.TicoTaco.TicoTaco.service;
 
+
+import com.TicoTaco.TicoTaco.Repository.ClienteRepository;
+import com.TicoTaco.TicoTaco.model.ClienteModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameter;
@@ -14,6 +17,8 @@ import java.util.Map;
 @Service
 public class ClienteService {
 
+    @Autowired
+    private ClienteRepository clienteRepository;
     private final JdbcTemplate jdbcTemplate;
     private SimpleJdbcCall jdbcCall;
 
@@ -37,5 +42,31 @@ public class ClienteService {
         System.out.println("Lista de resultados: " + resultList);
 
         return resultList;
+    }
+    public List<ClienteModel> getAllClientes() {
+        return clienteRepository.findAll();
+    }
+
+    public ClienteModel getClienteById(Long id) {
+        return clienteRepository.findById(id).orElse(null);
+    }
+
+    public ClienteModel createCliente(ClienteModel cliente) {
+        return clienteRepository.save(cliente);
+    }
+
+    public ClienteModel updateCliente(Long id, ClienteModel clienteDetails) {
+        ClienteModel cliente = clienteRepository.findById(id).orElse(null);
+        if (cliente != null) {
+            cliente.setNombreCliente(clienteDetails.getNombreCliente());
+            cliente.setApellidoCliente(clienteDetails.getApellidoCliente());
+            cliente.setFrecuencia(clienteDetails.getFrecuencia());
+            return clienteRepository.save(cliente);
+        }
+        return null;
+    }
+
+    public void deleteCliente(Long id) {
+        clienteRepository.deleteById(id);
     }
 }

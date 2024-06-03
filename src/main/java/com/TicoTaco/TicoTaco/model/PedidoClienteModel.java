@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
 
@@ -15,6 +12,12 @@ public class PedidoClienteModel {
     @Id
     @Column(name = "C_PEDIDO_CLIENTE")
     private long pedidoClienteId;
+
+    @Column(name = "N_MESA_ASIGNADA")
+    private int mesaAsignada;
+
+    @Column(name = "F_TIEMPO_PREPARACION")
+    private Data tiempoPreparacion;
 
     @Column(name = "F_HORA_PEDIDO")
     private Date horaPedido;
@@ -30,5 +33,25 @@ public class PedidoClienteModel {
 
     @Column(name = "C_TIPO_ENTREGA")
     private long tipoEntregaId;
+
+    @ManyToOne
+    @JoinColumn(name = "estado_Id", nullable = false)
+    private EstadoPedidoModel estado;
+
+    @ManyToOne
+    @JoinColumn(name = "express_Id", nullable = false)
+    private ExpressModel express;
+
+    @ManyToOne
+    @JoinColumn(name = "empleado_Id", nullable = false)
+    private EmpleadoModel empleado;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_Id", nullable = false)
+    private ClienteModel cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "menu_Id", nullable = false)
+    private MenuModel menu;
 }
 
