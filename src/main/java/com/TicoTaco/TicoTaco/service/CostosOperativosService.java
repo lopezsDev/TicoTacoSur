@@ -34,7 +34,11 @@ public class CostosOperativosService {
         CostosOperativosModel costosOperativos = costosOperativosRepository.findById(id).orElse(null);
 
         if (costosOperativos != null) {
-            costosOperativos.setNombreCostosOperativos(costosOperativosDetails.getNombreCostosOperativos());
+            costosOperativos.setCostosOperativosId(costosOperativosDetails.getCostosOperativosId());
+            costosOperativos.setDiapago(costosOperativosDetails.getDiapago());
+            costosOperativos.setDescripcion(costosOperativosDetails.getDescripcion());
+            costosOperativos.setCostodia(costosOperativosDetails.getCostodia());
+            costosOperativos.setTmoneda(costosOperativosDetails.getTmoneda());
 
             return costosOperativosRepository.save(costosOperativos);
         } else {

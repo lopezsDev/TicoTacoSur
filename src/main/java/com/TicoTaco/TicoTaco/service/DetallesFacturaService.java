@@ -37,8 +37,6 @@ public class DetallesFacturaService {
             detallesFactura.setCantidad(detallesFacturaDetails.getCantidad());
             detallesFactura.setPrecioLinea(detallesFacturaDetails.getPrecioLinea());
             detallesFactura.setObservaciones(detallesFacturaDetails.getObservaciones());
-            detallesFactura.setProducto(detallesFacturaDetails.getProducto());
-
             return detallesFacturaRepository.save(detallesFactura);
         } else {
             return null;

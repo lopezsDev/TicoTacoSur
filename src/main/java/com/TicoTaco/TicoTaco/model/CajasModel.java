@@ -30,4 +30,7 @@ public class CajasModel {
 
     @Column(name = "C_FORMA_PAGO")
     private int formaPago;
+
+    @Column(name = "C_FACTURA")
+    private int codfactura;
 }
