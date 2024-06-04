@@ -8,7 +8,8 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "CONTACTO")
-public class ContactoModel {
+public class
+ContactoModel {
 
     @Id
     @Column(name = "C_CONTACTO")
@@ -22,4 +23,11 @@ public class ContactoModel {
 
     @OneToMany (mappedBy = "contactoId")
     private Set<ClienteContactoModel>clientecontactoId;
+
+    @OneToMany (mappedBy = "contactoId")
+    private Set<ContactoModel> contactoEmpleadoId;
+
+    @OneToMany (mappedBy = "contactoEmpresaexpressId")
+    private Set<EmpresaExpressModel> empresaExpressId;
+
 }

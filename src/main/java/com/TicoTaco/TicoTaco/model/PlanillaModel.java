@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -34,4 +35,7 @@ public class PlanillaModel {
 
     @OneToMany(mappedBy = "planillaId")
     private List<AdminRestauranteModel> adminRestaurantes;
+
+    @OneToMany(mappedBy = "planillaId")
+    private Set<PlanillaModel> planillaEmpleadoId;
 }

@@ -1,12 +1,10 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -31,4 +29,7 @@ public class PermisoModel {
 
     @Column(name = "C_TIPO_PERMISO")
     private String tipo;
+
+    @OneToMany (mappedBy = "permisoId")
+    private Set<PermisoModel> permisoempleadoId;
 }

@@ -22,5 +22,9 @@ public class EmpresaExpressModel {
     @JoinColumn(name = "C_DIRECCION", nullable = false)
     private DireccionModel direccionId;
 
+    @ManyToOne
+    @JoinColumn(name = "C_CONTACTO", nullable = false)
+    private ContactoModel contactoEmpresaexpressId;
+
 
 }

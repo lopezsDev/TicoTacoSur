@@ -21,5 +21,7 @@ public class DetallePedidoProveedorModel {
     @Column(name = "M_PRECIO_UNITARIO")
     private double precioUnitario;
 
+    /*Falta devuelta de detalle_pedido_Proveedor_Bodega y Pedido proveedor*/
+
 }
 
