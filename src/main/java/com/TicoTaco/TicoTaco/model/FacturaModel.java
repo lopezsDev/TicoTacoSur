@@ -34,5 +34,9 @@ public class FacturaModel {
     @ManyToOne
     @JoinColumn(name = "C_PEDIDO_CLIENTE", nullable = false)
     private PedidoClienteModel pedidoCliente;
+
+    @ManyToOne
+    @JoinColumn(name = "C_FACTURA", nullable = false)
+    private CajasModel codfacturaId;
 }
 
