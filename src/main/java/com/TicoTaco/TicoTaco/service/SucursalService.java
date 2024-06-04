@@ -37,7 +37,7 @@ public class SucursalService {
             sucursal.setSucursalId(sucursalDetails.getSucursalId());
             sucursal.setNombreSucursal(sucursalDetails.getNombreSucursal());
             sucursal.setDireccionId(sucursalDetails.getDireccionId());
-            sucursal.setCaja(sucursalDetails.getCaja());
+            sucursal.setCajaId(sucursalDetails.getCajaId());
             sucursal.setContacto(sucursalDetails.getContacto());
             return sucursalRepository.save(sucursal);
         } else {
