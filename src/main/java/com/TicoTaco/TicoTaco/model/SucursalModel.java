@@ -21,8 +21,9 @@ public class SucursalModel {
     @JoinColumn(name = "C_DIRECCION", nullable = false)
     private DireccionModel direccionId;
 
+    @OneToMany
     @JoinColumn(name = "C_CONTACTO", nullable = false)
-    private ContactoModel contacto;
+    private ContactoModel contactoId;
 
     @ManyToOne
     @JoinColumn(name = "C_CAJA", nullable = false)

@@ -37,7 +37,7 @@ public class CostosOperativosModel {
     private MonedaModel monedaId;
 
     @OneToMany(mappedBy = "costosOperativosId")
-    private Set<AdminRestauranteModel> administradores;
+    private Set<AdminRestauranteModel> adminRestauranteId;
 
     @ManyToOne
     @JoinColumn(name = "C_TIPO_COSTOS_OPERATIVOS", nullable = false)

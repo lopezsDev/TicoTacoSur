@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -24,15 +21,16 @@ public class EmpleadoModel {
     @Column(name = "F_CONTRATACION")
     private java.util.Date fechaContratacion;
 
-    @Column(name = "C_PUESTO")
-    private int puestoId;
+    @JoinColumn(name = "C_PUESTO", nullable = false)
+    private PuestoModel puestoId;
 
+    @JoinColumn(name = "C_CONTACTO", nullable = false)
+    private ContactoModel contactoId;
 
+    @JoinColumn(name = "C_PLANILLA", nullable = false)
+    private PlanillaModel planillaId;
 
-    @Column(name = "C_PLANILLA")
-    private int planillaId;
-
-    @Column(name = "C_PERMISO")
-    private int permisoId;
+    @JoinColumn(name = "C_PERMISO", nullable = false)
+    private PermisoModel permisoId;
 }
 

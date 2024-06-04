@@ -27,7 +27,7 @@ public class DeduccionesModel {
     @Column(name = "D_ESTADO_DEDUCCION")
     private String estadoDeduccion;
 
-    @OneToMany(mappedBy = "deduccionId" )
-    private Set <PlanillaModel> planillaId;
+    @OneToMany(mappedBy = "deduccionId")
+    private Set <DeduccionesModel> deduccion;
 }
 

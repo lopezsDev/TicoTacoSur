@@ -22,4 +22,19 @@ public class ContactoModel {
 
     @OneToMany (mappedBy = "contactoId")
     private Set<ClienteContactoModel>clientecontactoId;
+
+    @OneToMany(mappedBy = "contactoId")
+    private Set<ExpressModel> expressId;
+
+    @OneToMany(mappedBy = "contactoId")
+    private Set<SucursalModel> sucursalId;
+
+    @OneToMany(mappedBy = "contactoId")
+    private Set<ProveedorModel> proveedorId;
+
+    @OneToMany(mappedBy = "contactoId")
+    private Set<EmpleadoModel> empleadoId;
+
+    @OneToOne(mappedBy = "contactoId")
+    private EmpresaExpressModel empresaExpressId;
 }

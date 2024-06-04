@@ -3,6 +3,7 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @Entity
@@ -32,5 +33,8 @@ public class CajasModel {
     @ManyToOne
     @JoinColumn(name = "C_FORMA_PAGO", nullable = false)
     private FormaPagoModel formaPagoId;
+
+    @OneToMany(mappedBy = "cajaId")
+    private Set<SucursalModel> sucursalId;
 
 }

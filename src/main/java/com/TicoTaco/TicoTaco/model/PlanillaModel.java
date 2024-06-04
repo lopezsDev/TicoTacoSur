@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -26,11 +27,13 @@ public class PlanillaModel {
     @Column(name = "F_FECHA_PAGO")
     private Date fechapago;
 
+
     @JoinColumn(name = "C_DEDUCCION", nullable = false)
     private DeduccionesModel deduccionId;
 
+    @OneToMany
     @JoinColumn(name = "C_BONIFICACION", nullable = false)
-    private BonificacionModel bonificacionId;
+    private Set<BonificacionModel> bonificacionId;
 
     @OneToMany(mappedBy = "planillaId")
     private List<AdminRestauranteModel> adminRestaurantes;

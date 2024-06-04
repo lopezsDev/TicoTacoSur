@@ -28,11 +28,11 @@ public class ProductoModel {
     private Date vencimiento;
 
     @ManyToOne
-    @JoinColumn(name = "categoriaId", nullable = false)
+    @JoinColumn(name = "C_CATEGORIA", nullable = false)
     private CategoriaModel categoriaId;
 
     @ManyToOne
-    @JoinColumn(name = "medidaId", nullable = false)
+    @JoinColumn(name = "C_MEDIDA", nullable = false)
     private UnidadMedidaModel medidaId;
 
     /*

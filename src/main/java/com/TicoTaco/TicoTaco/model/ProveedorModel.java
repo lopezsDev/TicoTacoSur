@@ -21,7 +21,7 @@ public class ProveedorModel {
     private Date diasentrega;
 
     @Column(name = "C_CONTACTO")
-    private long contactoId;
+    private ContactoModel contactoId;
 
     @OneToOne
     @JoinColumn(name = "C_DIRECCION", nullable = false)
