@@ -33,6 +33,7 @@ public class ProvinciaService {
         ProvinciaModel provincia = provinciaRepository.findById(id).orElse(null);
 
         if (provincia != null) {
+            provincia.setProvinciaId(provinciaDetails.getProvinciaId());
             provincia.setProvincia(provinciaDetails.getProvincia());
 
             return provinciaRepository.save(provincia);
