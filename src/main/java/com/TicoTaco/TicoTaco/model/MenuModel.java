@@ -12,6 +12,7 @@ public class MenuModel {
 
     @Id
     @Column(name = "C_MENU")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long menuId;
 
     @Column(name = "D_NOMBRE_MENU")
@@ -23,20 +24,15 @@ public class MenuModel {
     @Column(name = "M_PRECIO")
     private BigDecimal precio;
 
-    @ManyToOne
-    @JoinColumn(name = "C_MONEDA", updatable = false)
-    private MonedaModel monedaId;
+    @Column(name = "C_MONEDA")
+    private long monedaId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_COMBO", updatable = false)
-    private ComboModel comboId;
+    @Column(name = "C_COMBO")
+    private long comboId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PRODUCTO", updatable = false)
-    private ProductoModel productoId;
+    @Column(name = "C_PRODUCTO")
+    private long productoId;
 
-    @OneToMany(mappedBy = "menuId")
-    private Set<PedidoClienteModel> pedidosId;
 }
 
 

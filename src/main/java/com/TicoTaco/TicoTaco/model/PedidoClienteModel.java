@@ -21,27 +21,19 @@ public class PedidoClienteModel {
     @Column(name = "F_TIEMPO_PREPARACION")
     private Data tiempoPreparacion;
 
-    @ManyToOne
-    @JoinColumn(name = "C_ESTADO", nullable = false)
-    private EstadoPedidoModel estadoId;
+    @Column(name = "C_ESTADO")
+    private long estadoId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_EXPRESS", nullable = false)
-    private ExpressModel expressId;
+    @Column(name = "C_EXPRESS")
+    private long expressId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_EMPLEADO", nullable = false)
-    private EmpleadoModel empleadoId;
+    @Column(name = "C_EMPLEADO")
+    private long empleadoId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_CLIENTE", nullable = false)
-    private ClienteModel clienteId;
+    @Column(name = "C_CLIENTE")
+    private long clienteId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_MENU", nullable = false)
-    private MenuModel menuId;
-
-    @OneToMany(mappedBy = "pedidoClienteId")
-    private Set<FacturaModel> facturaId;
+    @Column(name = "C_MENU")
+    private long menuId;
 }
 

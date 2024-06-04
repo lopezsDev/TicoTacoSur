@@ -14,8 +14,5 @@ public class ProvinciaModel {
 
     @Column(name = "D_PROVINCIA")
     private String provincia;
-
-    @OneToMany(mappedBy = "provinciaId")
-    private CantonModel cantonId;
 }
 

@@ -21,11 +21,10 @@ public class ProveedorModel {
     private Date diasentrega;
 
     @Column(name = "C_CONTACTO")
-    private ContactoModel contactoId;
+    private long contactoId;
 
-    @OneToOne
-    @JoinColumn(name = "C_DIRECCION", nullable = false)
-    private DireccionModel direccionId;
+    @Column(name = "C_DIRECCION")
+    private long direccionId;
 
 }
 

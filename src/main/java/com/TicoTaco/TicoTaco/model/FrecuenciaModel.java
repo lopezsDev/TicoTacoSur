@@ -18,8 +18,4 @@ public class FrecuenciaModel {
 
     @Column(name = "T_TIPO_CLIENTE")
     private int tipoCliente;
-
-    @OneToMany(mappedBy = "frecuenciaId")
-    private Set<ClienteModel> clienteId;
-
 }

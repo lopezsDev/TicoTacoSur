@@ -30,5 +30,5 @@ public class PermisoModel {
     private String estado;
 
     @Column(name = "C_TIPO_PERMISO")
-    private String tipo;
+    private long tipoPermisoId;
 }

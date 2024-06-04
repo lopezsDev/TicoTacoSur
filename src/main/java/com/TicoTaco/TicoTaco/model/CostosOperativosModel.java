@@ -19,7 +19,7 @@ public class CostosOperativosModel {
 
     @Id
     @Column(name = "C_COSTOS_OPERATIVOS")
-    private Long costosOperativosId;
+    private long costosOperativosId;
 
     @Column(name = "F_DIA_PAGO")
     private java.time.LocalDateTime diapago;
@@ -33,16 +33,8 @@ public class CostosOperativosModel {
     @Column(name = "C_TIPO_COSTO_OPERATIVO")
     private String tipocosto;
 
-    @JoinColumn(name = "C_MONEDA", nullable = false)
-    private MonedaModel monedaId;
-
-    @OneToMany(mappedBy = "costosOperativosId")
-    private Set<AdminRestauranteModel> adminRestauranteId;
-
-    @ManyToOne
-    @JoinColumn(name = "C_TIPO_COSTOS_OPERATIVOS", nullable = false)
-    private TipoCostosOperativosModel tipoCostosOperativosId;
-
+    @Column(name = "C_MONEDA")
+    private long monedaId;
 
 }
 

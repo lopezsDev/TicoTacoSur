@@ -11,8 +11,9 @@ import java.util.Set;
 public class BonificacionModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_BONIFICACION")
-    private int bonificacionId;
+    private long bonificacionId;
 
     @Column(name = "D_NOMBRE_BONIFICACION")
     private String nombreBonificacion;
@@ -20,7 +21,5 @@ public class BonificacionModel {
     @Column(name = "M_BONIFICACION")
     private String montobonificacion;
 
-    @OneToMany(mappedBy = "bonificacionId")
-    private Set<PlanillaModel> planillaId;
 }
 

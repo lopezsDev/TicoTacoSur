@@ -12,18 +12,10 @@ public class MonedaModel {
 
     @Id
     @Column(name = "C_MONEDA")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long monedaId;
 
     @Column(name = "T_DIVISA")
-    private double moneda;
-
-    @OneToMany(mappedBy = "monedaId")
-    private Set<MenuModel> menus;
-
-    @OneToMany(mappedBy = "monedaId")
-    private Set<CostosOperativosModel> costosOperativosId;
-
-    @OneToMany(mappedBy = "monedaId")
-    private Set<FacturaModel> facturaModels;
+    private String moneda;
 }
 

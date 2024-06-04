@@ -15,13 +15,8 @@ public class CantonModel {
     @Column(name = "D_CANTON")
     private String canton;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PROVINCIA", nullable = false)
-    private ProvinciaModel provinciaId;
-
-    @OneToMany(mappedBy = "cantonId")
-    private DistritoModel distritoId;
-
+    @Column(name = "C_PROVINCIA")
+    private long provinciaId;
 
 }
 

@@ -20,17 +20,7 @@ public class ClienteModel {
     @Column(name = "D_APELLIDO_CLIENTE")
     private String apellidoCliente;
 
-    @ManyToOne
-    @JoinColumn(name = "C_FRECUENCIA", nullable = false)
-    private FrecuenciaModel frecuenciaId;
-
-    @OneToMany(mappedBy = "clienteId")
-    private Set<PedidoClienteModel> pedidoClienteId;
-
-    @OneToMany(mappedBy = "clienteId")
-    private Set<ClienteDireccionModel> direccionId;
-
-    @OneToMany(mappedBy = "contactoId")
-    private Set<ClienteContactoModel> contactoId;
+    @Column(name = "C_FRECUENCIA")
+    private int frecuenciaId;
 
 }

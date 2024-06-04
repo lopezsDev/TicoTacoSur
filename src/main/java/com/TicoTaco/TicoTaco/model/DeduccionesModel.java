@@ -13,7 +13,7 @@ public class DeduccionesModel {
 
     @Id
     @Column(name = "C_DEDUCCION")
-    private Long deduccionId;
+    private long deduccionId;
 
     @Column(name = "D_NOMBRE_DEDUCCION")
     private String nombreDeduccion;
@@ -26,8 +26,5 @@ public class DeduccionesModel {
 
     @Column(name = "D_ESTADO_DEDUCCION")
     private String estadoDeduccion;
-
-    @OneToMany(mappedBy = "deduccionId")
-    private Set <DeduccionesModel> deduccion;
 }
 

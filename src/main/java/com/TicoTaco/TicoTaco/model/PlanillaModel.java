@@ -20,24 +20,14 @@ public class PlanillaModel {
 
     @Column(name = "M_SALARIO_TOTAL")
     private int salariototal;
-
-    @Column(name = "M_SALARIO_BASE")
-    private int salariobase;
-
+    
     @Column(name = "F_FECHA_PAGO")
     private Date fechapago;
 
+    @Column(name = "C_DEDUCCION")
+    private long deduccionId;
 
-    @JoinColumn(name = "C_DEDUCCION", nullable = false)
-    private DeduccionesModel deduccionId;
+    @Column(name = "C_BONIFICACION")
+    private long bonificacionId;
 
-    @OneToMany
-    @JoinColumn(name = "C_BONIFICACION", nullable = false)
-    private Set<BonificacionModel> bonificacionId;
-
-    @OneToMany(mappedBy = "planillaId")
-    private List<AdminRestauranteModel> adminRestaurantes;
-
-    @OneToMany(mappedBy = "planillaId")
-    private Set<PlanillaModel> planillaEmpleadoId;
 }

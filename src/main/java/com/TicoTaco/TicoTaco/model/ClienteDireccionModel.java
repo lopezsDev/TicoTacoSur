@@ -1,29 +1,22 @@
 package com.TicoTaco.TicoTaco.model;
 
 import com.TicoTaco.TicoTaco.serializable.ClienteDireccionId;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity
 @Data
-public class ClienteDireccionModel {
+@Entity
+@Table(name = "CLIENTE_DIRECCION")
+@IdClass(ClienteDireccionId.class)
+public class ClienteDireccionModel{
 
-    @EmbeddedId
-    private ClienteDireccionId id;
+    @Id
+    @Column(name = "C_CLIENTE")
+    private int clienteId;
 
-    @ManyToOne
-    @MapsId("clienteId")
-    @JoinColumn(name = "C_CLIENTE", nullable = false)
-    public ClienteModel clienteId;
-
-    @ManyToOne
-    @MapsId("direccionId")
-    @JoinColumn(name = "C_DIRECCION", nullable = false)
-    public DireccionModel direccionId;
+    @Id
+    @Column(name = "C_DIRECCION")
+    private int direccionId;
 }
 
 

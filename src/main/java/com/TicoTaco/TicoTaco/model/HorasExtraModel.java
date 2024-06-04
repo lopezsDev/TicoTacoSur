@@ -13,7 +13,7 @@ public class HorasExtraModel {
 
     @Id
     @Column(name = "C_HORAS_EXTRA")
-    private Long horasExtraId;
+    private long horasExtraId;
 
     @Column(name = "Q_HORAS_EXTRA")
     private int cantidadHoras;

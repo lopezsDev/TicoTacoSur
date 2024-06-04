@@ -12,36 +12,19 @@ public class SucursalModel {
 
     @Id
     @Column(name = "C_SUCURSAL")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long sucursalId;
 
     @Column(name = "D_NOMBRE_SUCURSAL")
     private String nombreSucursal;
 
-    @OneToOne
-    @JoinColumn(name = "C_DIRECCION", nullable = false)
-    private DireccionModel direccionId;
+    @Column(name = "C_DIRECCION")
+    private long direccionId;
 
-    @OneToMany
-    @JoinColumn(name = "C_CONTACTO", nullable = false)
-    private ContactoModel contactoId;
+    @Column(name = "C_CONTACTO")
+    private long contactoId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_CAJA", nullable = false)
-    private Set<CajasModel> cajaId;
-
-    @OneToMany(mappedBy = "sucursalId")
-    private Set<AdminRestauranteModel> adminRestaurante;
-
-    @OneToMany(mappedBy = "sucursalId")
-    private Set<BodegaModel> bodegas;
-
-    @OneToMany(mappedBy = "empleadoId")
-    private Set<EmpleadoModel> empleados;
-
-    @OneToMany(mappedBy = "sucursalId")
-    private Set<PedidoProveedorModel> pedidosProveedor;
-
-    @OneToMany(mappedBy = "sucursalId")
-    private Set<FacturaModel> facturasId;
+    @Column(name = "C_CAJA")
+    private long cajaId;
 }
 

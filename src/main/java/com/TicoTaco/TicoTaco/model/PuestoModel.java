@@ -20,9 +20,6 @@ public class PuestoModel {
     @Column(name = "M_SALARIO_BASE")
     private  double salarioBase;
 
-    @OneToMany (mappedBy = "puestoId")
-    private Set<EmpleadoModel> puestoempleadoId;
-
 
 
 

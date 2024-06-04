@@ -21,25 +21,17 @@ public class FacturaModel {
     @Column(name = "M_MONTO_TOTAL")
     private double montoTotal;
 
-    @OneToMany
-    @JoinColumn(name = "C_DETALLE_FACTURA", nullable = false)
-    private DetallesFacturaModel detalleFacturaId;
+    @Column(name = "C_DETALLE_FACTURA")
+    private long detalleFacturaId;
 
-    @JoinColumn(name = "C_SUCURSAL")
+    @Column(name = "C_SUCURSAL")
     private long sucursalId;
 
-    @OneToMany
-    @JoinColumn(name = "C_MONEDA", nullable = false)
-    private MonedaModel monedaId;
+    @Column(name = "C_MONEDA")
+    private long monedaId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PEDIDO_CLIENTE", nullable = false)
-    private PedidoClienteModel pedidoCliente;
-
-
-    @OneToMany(mappedBy = "facturaId")
-    private Set<CajasModel> cajaId;
-
+    @Column(name = "C_PEDIDO_CLIENTE")
+    private long pedidoCliente;
 
 }
 

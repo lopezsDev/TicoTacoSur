@@ -1,20 +1,23 @@
 package com.TicoTaco.TicoTaco.model;
 
-import com.TicoTaco.TicoTaco.serializable.DetallesFacturaProductoId;
+import com.TicoTaco.TicoTaco.serializable.DetalleFacturaProductoId;
 import jakarta.persistence.*;
+import lombok.Data;
 
-public class DetalleFacturaProductoModel {
+@Data
+@Entity
+@Table(name = "DETALLES_FACTURA_PRODUCTO")
+@IdClass(DetalleFacturaProductoId.class)
+public class DetalleFacturaProductoModel{
 
-    @EmbeddedId
-    private DetallesFacturaProductoId id;
+    @Id
+    @Column(name = "C_DETALLE_FACTURA")
+    private int detalleFacturaId;
 
-    @ManyToOne
-    @MapsId("detalleFacturaId")
-    @JoinColumn(name = "C_DETALLE_FACTURA")
-    private DetallesFacturaModel detalleFactura;
+    @Id
+    @Column(name = "C_PRODUCTO")
+    private int productoId;
 
-    @ManyToOne
-    @MapsId("productoId")
-    @JoinColumn(name = "C_PRODUCTO")
-    private ProductoModel producto;
+
 }
+

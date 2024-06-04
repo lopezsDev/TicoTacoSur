@@ -12,7 +12,8 @@ public class EmpleadoModel {
 
     @Id
     @Column(name = "C_EMPLEADO")
-    private Long empleadoId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long empleadoId;
 
     @Column(name = "D_NOMBRE_EMPLEADO")
     private String nombreEmpleado;
@@ -23,20 +24,18 @@ public class EmpleadoModel {
     @Column(name = "F_CONTRATACION")
     private java.util.Date fechaContratacion;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PUESTO", nullable = false )
-    private PuestoModel puestoId;
+    @Column(name = "C_PUESTO")
+    private long puestoId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_CONTACTO", nullable = false )
-    private ContactoModel contactoId;
+    @Column(name = "C_CONTACTO")
+    private long contactoId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_Planilla", nullable = false )
-    private PlanillaModel planillaId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PERMISO", nullable = false )
-    private PermisoModel permisoId;
+    @Column(name = "C_Planilla")
+    private long planillaId;
+
+
+    @Column(name = "C_PERMISO")
+    private long permisoId;
 }
 

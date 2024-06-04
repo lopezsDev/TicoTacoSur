@@ -1,20 +1,22 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.TicoTaco.TicoTaco.serializable.DetallePedidoProveedorBodegaId;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "TIPO_PERMISO")
-public class DetallePedidoProveedorBodegaModel {
-    @Id
-    @Column(name = "C_TIPO_PERMISO")
-    private long tipopermiso;
+@Table(name = "DETALLE_PEDIDO_PROVEEDOR_BODEGA")
+@IdClass(DetallePedidoProveedorBodegaId.class)
+public class DetallePedidoProveedorBodegaModel{
 
-    @Column(name = "T_NOMBRE_PERMISO")
-    private String nompermiso;
+    @Id
+    @Column(name = "C_DETALLE_PEDIDO_PROVEEDOR")
+    private int detallePedidoProveedorId;
+
+    @Id
+    @Column(name = "C_BODEGA")
+    private int bodegaId;
 
 }
+

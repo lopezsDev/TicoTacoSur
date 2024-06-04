@@ -17,6 +17,4 @@ public class EstadoPedidoModel {
     @Column(name = "T_ESTADO")
     private String estado;
 
-    @OneToMany(mappedBy = "estadoId")
-    private Set<PedidoClienteModel> pedidoClienteId;
 }

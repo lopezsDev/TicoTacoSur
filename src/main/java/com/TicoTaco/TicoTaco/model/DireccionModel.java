@@ -19,19 +19,6 @@ public class DireccionModel {
     @Column(name = "D_DIRECCION_ESPECIFICA")
     private String direccionEspecifica;
 
-    @ManyToOne
-    @JoinColumn(name = "C_DISTRITO", nullable = false)
-    private DistritoModel distritoId;
-
-    @OneToMany(mappedBy = "direccionId")
-    private Set<ClienteDireccionModel> clienteDireccionId;
-
-    @OneToOne(mappedBy = "direccionId")
-    private Set<ProveedorModel> proveedorDireccion;
-
-    @OneToOne(mappedBy = "direccionId")
-    private Set<SucursalModel> sucursalDireccion;
-
-    @OneToOne(mappedBy = "direccionId")
-    private Set<EmpresaExpressModel> empExpressDireccion;
+    @Column(name = "C_DISTRITO")
+    private int distritoId;
 }

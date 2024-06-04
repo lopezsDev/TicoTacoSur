@@ -3,11 +3,7 @@ package com.TicoTaco.TicoTaco.model;
 
 import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -17,12 +13,10 @@ public class TipoCostosOperativosModel {
 
     @Id
     @Column(name = "C_TIPO_COSTOS_OPERATIVOS")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long tipoCostosOperativosId;
 
     @Column(name = "D_NOMBRE_TIPO_COSTOS_OPERATIVOS")
     private String nombreTipoCostosOperativos;
-
-    @OneToMany(mappedBy = "tipoCostosOperativosId")
-    private Set<CostosOperativosModel> costosOperativosId;
 
 }

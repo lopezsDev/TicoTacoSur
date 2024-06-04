@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 
@@ -14,6 +11,7 @@ public class UnidadMedidaModel {
 
     @Id
     @Column(name = "C_MEDIDA")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long medida;
 
     @Column(name = "D_ABREVIATURA")

@@ -12,18 +12,19 @@ public class EmpresaExpressModel {
 
     @Id
     @Column(name = "C_EMPRESA_EXPRESS")
-    private Long empresaExpressId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long empresaExpressId;
 
     @Column(name = "D_NOMBRE_EMPRESA")
     private String nombreEmpresa;
 
-    @OneToMany
-    @JoinColumn(name = "C_CONTACTO")
-    private Set<ContactoModel> contactoId;
 
-    @OneToOne
-    @JoinColumn(name = "C_DIRECCION", nullable = false)
-    private DireccionModel direccionId;
+    @Column(name = "C_CONTACTO")
+    private long contactoId;
+
+
+    @Column(name = "C_DIRECCION")
+    private long direccionId;
 
 
 }

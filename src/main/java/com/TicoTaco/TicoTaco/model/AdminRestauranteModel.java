@@ -1,12 +1,9 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 @Data
 @Entity
@@ -14,25 +11,22 @@ import lombok.Data;
 public class AdminRestauranteModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_ADMIN")
-    private Long adminId;
+    private long adminId;
 
     @Column(name = "M_GANANCIAS")
-    private double ganancias;
+    private BigDecimal ganancias;
 
     @Column(name = "M_PERDIDAS")
-    private double perdidas;
+    private BigDecimal perdidas;
 
-    @ManyToOne
-    @JoinColumn(name = "C_SUCURSAL", nullable = false)
-    private SucursalModel sucursalId;
+    @Column(name = "C_SUCURSAL")
+    private int sucursalId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_PLANILLA", nullable = false)
-    private PlanillaModel planillaId;
+    @Column(name = "C_PLANILLA")
+    private int planillaId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_COSTOS_OPERATIVOS", nullable = false)
-    private CostosOperativosModel costosOperativosId;
-
+    @Column(name = "C_COSTOS_OPERATIVOS")
+    private int costosOperativosId;
 }

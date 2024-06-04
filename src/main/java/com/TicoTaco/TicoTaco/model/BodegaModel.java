@@ -1,32 +1,29 @@
 package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-@Data
 @Entity
 @Table(name = "BODEGA")
 public class BodegaModel {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_BODEGA")
-    private int bodegaId;
+    private long bodegaId;
 
     @Column(name = "Q_STOCK")
-    private double stock;
+    private BigDecimal stock;
 
     @Column(name = "Q_MINIMA")
-    private double CantidadMinima;
+    private BigDecimal minima;
 
     @Column(name = "F_INGRESO")
-    private java.time.LocalDateTime ingreso;
+    private LocalDateTime ingreso;
 
-    @OneToMany
-    @JoinColumn(name = "C_PRODUCTO", nullable = false)
-    private ProductoModel productoId;
+    @Column(name = "C_PRODUCTO")
+    private int productoId;
 
-    @ManyToOne
-    @JoinColumn(name = "C_SUCURSAL", nullable = false)
-    private SucursalModel sucursalId;
+    @Column(name = "C_SUCURSAL")
+    private int sucursalId;
 }
-

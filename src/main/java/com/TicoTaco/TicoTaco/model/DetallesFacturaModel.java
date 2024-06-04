@@ -12,7 +12,7 @@ public class DetallesFacturaModel {
 
     @Id
     @Column(name = "C_DETALLE_FACTURA")
-    private Long detalleFacturaId;
+    private long detalleFacturaId;
 
     @Column(name = "Q_CANTIDAD")
     private int cantidad;
@@ -23,9 +23,5 @@ public class DetallesFacturaModel {
     @Column(name = "D_OBSERVACIONES")
     private String observaciones;
 
-    @OneToMany(mappedBy = "detalleFacturaId")
-    private Set<FacturaModel> facturaId;
-
-    /*Falta serializable de detalle_factura_producto*/
 }
 

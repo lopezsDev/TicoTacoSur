@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,6 +12,7 @@ public class PedidoProveedorModel {
 
     @Id
     @Column(name = "C_PEDIDO_PROVEEDOR")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long pedidoProveedorId;
 
     @Column(name = "F_PEDIDO")

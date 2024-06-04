@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -13,15 +10,12 @@ public class DetallePedidoProveedorModel {
 
     @Id
     @Column(name = "C_DETALLE_PEDIDO_PROVEEDOR")
-    private Long detallePedidoProveedorId;
+    private long detallePedidoProveedorId;
 
     @Column(name = "Q_CANTIDAD")
     private int cantidad;
 
     @Column(name = "M_PRECIO_UNITARIO")
     private double precioUnitario;
-
-    /*Falta devuelta de detalle_pedido_Proveedor_Bodega y Pedido proveedor*/
-
 }
 

@@ -6,18 +6,17 @@ import lombok.Data;
 
 @Data
 @Entity
-public class ClienteContactoModel {
+@Table(name = "CONTACTO_CLIENTE")
+@IdClass(ClienteContactoId.class)
+public class ClienteContactoModel{
 
-    @EmbeddedId
-    private ClienteContactoId id;
+    @Id
+    @Column(name = "C_CONTACTO")
+    private int contactoId;
 
-    @ManyToOne
-    @MapsId("clienteId")
-    @JoinColumn(name = "C_CLIENTE", nullable = false)
-    private ClienteModel clienteId;
+    @Id
+    @Column(name = "C_CLIENTE")
+    private int clienteId;
 
-    @ManyToOne
-    @MapsId("contactoId")
-    @JoinColumn(name = "C_CONTACTO", nullable = false)
-    private ContactoModel contactoId;
 }
+

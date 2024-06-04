@@ -11,8 +11,9 @@ import java.util.Set;
 public class CategoriaModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_CATEGORIA")
-    private Long categoriaId;
+    private long categoriaId;
 
     @Column(name = "D_NOMBRE_CATEGORIA")
     private String nombreCategoria;
@@ -20,7 +21,5 @@ public class CategoriaModel {
     @Column(name = "D_DESCRIPCION")
     private String descripcion;
 
-    @OneToMany(mappedBy = "categoriaId")
-    private Set<ProductoModel> productos;
 }
 

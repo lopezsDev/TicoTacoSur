@@ -12,7 +12,8 @@ public class ComboModel {
 
     @Id
     @Column(name = "C_COMBO")
-    private Long comboId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long comboId;
 
     @Column(name = "D_NOMBRE_COMBO")
     private String nombreCombo;
@@ -23,7 +24,5 @@ public class ComboModel {
     @Column(name = "M_PRECIO")
     private double precio;
 
-    @OneToMany(mappedBy = "menuId")
-    private Set<MenuModel> menuId;
 }
 

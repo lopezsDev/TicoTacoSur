@@ -12,17 +12,14 @@ public class DistritoModel {
 
     @Id
     @Column(name = "C_DISTRITO")
-    private Long distritoId;
+    private long distritoId;
 
     @Column(name = "D_DISTRITO")
     private String distritoNombre;
 
-    @ManyToOne
-    @JoinColumn(name = "C_CANTON", nullable = false)
-    private CantonModel cantonId;
+    @Column(name = "C_CANTON")
+    private long cantonId;
 
-    @OneToMany(mappedBy = "distritoId")
-    private Set<DireccionModel> direccion;
 
 
 
