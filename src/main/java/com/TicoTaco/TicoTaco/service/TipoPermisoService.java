@@ -19,8 +19,8 @@ public class TipoPermisoService {
         return tipoPermisoRepository.findAll();
     }
 
-    /*public Optional<TipoPermisoModel> getTipoPermisoById(long id){return TipoPermisoRepository.findById(id);
-    }*/
+    public Optional<TipoPermisoModel> getTipoPermisoById(long id){return tipoPermisoRepository.findById(id);
+    }
 
     public TipoPermisoModel createTipoPermiso(TipoPermisoModel tipoPermiso){
         return tipoPermisoRepository.save(tipoPermiso);
@@ -29,8 +29,8 @@ public class TipoPermisoService {
     public TipoPermisoRepository updateTipoPermisoRepository(long id, TipoPermisoModel tipoPermisoDetails) {
         TipoPermisoModel tipopermiso = tipoPermisoRepository.findById(id).orElse(null);
         if (tipopermiso != null) {
-            tipopermiso.setTipopermiso(tipoPermisoDetails.getTipopermiso());
-            tipopermiso.setNompermiso(tipoPermisoDetails.getNompermiso());
+            tipopermiso.setTipoPermisoId(tipoPermisoDetails.getTipoPermisoId());
+            tipopermiso.setNombrePermiso(tipoPermisoDetails.getNombrePermiso());
             return (TipoPermisoRepository) tipoPermisoRepository.save(tipopermiso);
         }else {
 
