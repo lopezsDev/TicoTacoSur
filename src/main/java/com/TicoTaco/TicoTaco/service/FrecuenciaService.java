@@ -34,7 +34,6 @@ public class FrecuenciaService {
         FrecuenciaModel frecuencia = frecuenciaRepository.findById(id).orElse(null);
 
         if (frecuencia != null) {
-            frecuencia.setFrecuenciaId(frecuenciaDetails.getFrecuenciaId());
             frecuencia.setTipoCliente(frecuenciaDetails.getTipoCliente());
 
             return frecuenciaRepository.save(frecuencia);

@@ -34,7 +34,6 @@ public class EmpleadoService {
         EmpleadoModel empleado = empleadoRepository.findById(id).orElse(null);
 
         if (empleado != null) {
-            empleado.setEmpleadoId(empleadoDetails.getEmpleadoId());
             empleado.setNombreEmpleado(empleadoDetails.getNombreEmpleado());
             empleado.setApellidoEmpleado(empleadoDetails.getApellidoEmpleado());
             empleado.setFechaContratacion(empleadoDetails.getFechaContratacion());

@@ -34,7 +34,6 @@ public class EstadoPedidoService {
         EstadoPedidoModel estadoPedido = estadoPedidoRepository.findById(id).orElse(null);
 
         if (estadoPedido != null) {
-            estadoPedido.setEstadoId(estadoPedidoDetails.getEstadoId());
             estadoPedido.setEstado(estadoPedidoDetails.getEstado());
 
             return estadoPedidoRepository.save(estadoPedido);

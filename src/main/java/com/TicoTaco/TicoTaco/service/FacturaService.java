@@ -34,7 +34,6 @@ public class FacturaService {
         FacturaModel factura = facturaRepository.findById(id).orElse(null);
 
         if (factura != null) {
-            factura.setFacturaId(facturaDetails.getFacturaId());
             factura.setFechaPedido(facturaDetails.getFechaPedido());
             factura.setMontoTotal(facturaDetails.getMontoTotal());
             factura.setDetalleFacturaId(facturaDetails.getDetalleFacturaId());

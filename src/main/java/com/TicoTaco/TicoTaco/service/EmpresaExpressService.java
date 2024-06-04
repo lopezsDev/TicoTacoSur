@@ -34,7 +34,6 @@ public class EmpresaExpressService {
         EmpresaExpressModel empresaExpress = empresaExpressRepository.findById(id).orElse(null);
 
         if (empresaExpress != null) {
-            empresaExpress.setEmpresaExpressId(empresaExpressDetails.getEmpresaExpressId());
             empresaExpress.setNombreEmpresa(empresaExpressDetails.getNombreEmpresa());
             empresaExpress.setContactoId(empresaExpressDetails.getContactoId());
             empresaExpress.setDireccionId(empresaExpressDetails.getDireccionId());
