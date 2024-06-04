@@ -38,9 +38,9 @@ public class AdminRestauranteService {
         AdminRestauranteModel adminRestaurante = adminRestauranteRepository.findById(id).orElse(null);
 
         if (adminRestaurante != null) {
+            adminRestaurante.setAdminId(adminRestauranteDetails.getAdminId());
             adminRestaurante.setGanancias(adminRestauranteDetails.getGanancias());
             adminRestaurante.setPerdidas(adminRestauranteDetails.getPerdidas());
-            adminRestaurante.setAdminId(adminRestauranteDetails.getAdminId());
             adminRestaurante.setSucursalId(adminRestauranteDetails.getSucursalId());
             adminRestaurante.setPlanillaId(adminRestauranteDetails.getPlanillaId());
             adminRestaurante.setCostosOperativosId(adminRestauranteDetails.getCostosOperativosId());

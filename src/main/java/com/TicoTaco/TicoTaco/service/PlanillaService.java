@@ -36,8 +36,8 @@ public class PlanillaService {
             planilla.setPlanillaId(planilla.getPlanillaId());
             planilla.setHorasextras(planillaDetails.getHorasextras());
             planilla.setSalariototal(planillaDetails.getSalariototal());
-            planilla.setSalariobase(planillaDetails.getSalariobase());
-            /*falta planilla C_Puesto
+            /* planilla.setSalariobase(planillaDetails.getSalariobase());*/
+            /* falta planilla C_Puesto
             * planilla.setPuestoId.(planillaDetails.getPuesto());*/
             planilla.setFechapago(planillaDetails.getFechapago());
             planilla.setDeduccionId(planillaDetails.getDeduccionId());

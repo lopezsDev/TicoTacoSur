@@ -34,6 +34,7 @@ public class ContactoService {
         ContactoModel contacto = contactoRepository.findById(id).orElse(null);
 
         if (contacto != null) {
+            contacto.setContactoId(contactoDetails.getContactoId());
             contacto.setTelefono(contactoDetails.getTelefono());
             contacto.setEmail(contactoDetails.getEmail());
 

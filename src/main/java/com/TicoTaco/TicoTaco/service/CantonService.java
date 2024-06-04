@@ -38,10 +38,9 @@ public class CantonService {
         CantonModel canton = cantonRepository.findById(id).orElse(null);
 
         if (canton != null) {
+            canton.setCantonId(cantonDetails.getCantonId());
             canton.setCanton(cantonDetails.getCanton());
             canton.setProvinciaId(cantonDetails.getProvinciaId());
-            canton.setDistritoId(cantonDetails.getDistritoId());
-            canton.setCantonId(cantonDetails.getCantonId());
 
             return cantonRepository.save(canton);
         } else {

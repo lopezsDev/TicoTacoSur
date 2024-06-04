@@ -18,5 +18,7 @@ public class CantonModel {
     @Column(name = "C_PROVINCIA")
     private long provinciaId;
 
+
+
 }
 

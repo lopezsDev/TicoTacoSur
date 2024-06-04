@@ -34,6 +34,7 @@ public class DetallesFacturaService {
         DetallesFacturaModel detallesFactura = detallesFacturaRepository.findById(id).orElse(null);
 
         if (detallesFactura != null) {
+            detallesFactura.setDetalleFacturaId(detallesFacturaDetails.getDetalleFacturaId());
             detallesFactura.setCantidad(detallesFacturaDetails.getCantidad());
             detallesFactura.setPrecioLinea(detallesFacturaDetails.getPrecioLinea());
             detallesFactura.setObservaciones(detallesFacturaDetails.getObservaciones());

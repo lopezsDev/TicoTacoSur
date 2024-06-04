@@ -38,10 +38,11 @@ public class CajasService {
         CajasModel cajas = cajasRepository.findById(id).orElse(null);
 
         if (cajas != null) {
-            cajas.setFechaHoraApertura(cajasDetails.getFechaHoraApertura());
-            cajas.setFechaHoraCierre(cajasDetails.getFechaHoraCierre());
-            cajas.setMontoInicial(cajasDetails.getMontoInicial());
-            cajas.setMontoFinal(cajasDetails.getMontoFinal());
+            cajas.setCajasId(cajasDetails.getCajasId());
+            cajas.setApertura(cajasDetails.getApertura());
+            cajas.setCierre(cajasDetails.getCierre());
+            cajas.setInicial(cajasDetails.getInicial());
+            cajas.setFinalMonto(cajasDetails.getFinalMonto());
             cajas.setFormaPagoId(cajasDetails.getFormaPagoId());
             cajas.setFacturaId(cajasDetails.getFacturaId());
 

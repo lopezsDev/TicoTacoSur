@@ -34,6 +34,7 @@ public class DireccionService {
         DireccionModel direccion = direccionRepository.findById(id).orElse(null);
 
         if (direccion != null) {
+            direccion.setDireccionId(direccion.getDireccionId());
             direccion.setDireccionEspecifica(direccionDetails.getDireccionEspecifica());
             direccion.setDistritoId(direccionDetails.getDistritoId());
 

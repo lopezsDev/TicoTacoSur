@@ -34,20 +34,20 @@ public class BodegaService {
     }
 
     // Actualizar un elemento existente
-    public BodegaModel updateBodega(int id, BodegaModel bodegaDetails) {
-        BodegaModel bodega = bodegaRepository.findById(id).orElse(null);
+    public BodegaModel updateBodega(int id, BodegaModel BodegaData) {
+        Optional<BodegaModel> optionalBodega = bodegaRepository.findById(id);
 
-        if (bodega != null) {
-            bodega.setStock(bodegaDetails.getStock());
-            bodega.setCantidadMinima(bodegaDetails.getCantidadMinima());
-            bodega.setIngreso(bodegaDetails.getIngreso());
-            bodega.setBodegaId(bodegaDetails.getBodegaId());
-            bodega.setSucursalId(bodegaDetails.getSucursalId());
+        if (optionalBodega.isPresent()) {
+            BodegaModel existingBodega = optionalBodega.get();
+            existingBodega.setStock(BodegaData.getStock());
+            existingBodega.setMinima(BodegaData.getMinima());
+            existingBodega.setIngreso(BodegaData.getIngreso());
+            existingBodega.setProductoId(BodegaData.getProductoId());
+            existingBodega.setSucursalId(BodegaData.getSucursalId());
 
-
-            return bodegaRepository.save(bodega);
+            return bodegaRepository.save(existingBodega);
         } else {
-            return null; // Manejo de error si no se encuentra el elemento
+            throw new RuntimeException("Bodega not found with id " + id);
         }
     }
 
