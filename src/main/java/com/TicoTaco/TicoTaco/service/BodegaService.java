@@ -41,8 +41,9 @@ public class BodegaService {
             bodega.setStock(bodegaDetails.getStock());
             bodega.setCantidadMinima(bodegaDetails.getCantidadMinima());
             bodega.setIngreso(bodegaDetails.getIngreso());
-            bodega.setProducto(bodegaDetails.getProducto());
-            bodega.setSucursal(bodegaDetails.getSucursal());
+            bodega.setBodegaId(bodegaDetails.getBodegaId());
+            bodega.setSucursalId(bodegaDetails.getSucursalId());
+
 
             return bodegaRepository.save(bodega);
         } else {

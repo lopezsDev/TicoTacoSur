@@ -34,10 +34,8 @@ public class MonedaService {
         MonedaModel moneda = monedaRepository.findById(id).orElse(null);
 
         if (moneda != null) {
-            moneda.setNombreMoneda(monedaDetails.getNombreMoneda());
-            moneda.setSimbolo(monedaDetails.getSimbolo());
-            moneda.setTipoCambio(monedaDetails.getTipoCambio());
-
+            moneda.setMonedaId(moneda.getMonedaId());
+            moneda.setMoneda(moneda.getMoneda());
             return monedaRepository.save(moneda);
         } else {
             return null;

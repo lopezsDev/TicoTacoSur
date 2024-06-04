@@ -41,9 +41,9 @@ public class CajasService {
             cajas.setFechaHoraApertura(cajasDetails.getFechaHoraApertura());
             cajas.setFechaHoraCierre(cajasDetails.getFechaHoraCierre());
             cajas.setMontoInicial(cajasDetails.getMontoInicial());
-            cajas.setFinalMonto(cajasDetails.getFinalMonto());
-            cajas.setFormaPago(cajasDetails.getFormaPago());
-            cajas.setCodfactura(cajasDetails.getCodfactura());
+            cajas.setMontoFinal(cajasDetails.getMontoFinal());
+            cajas.setFormaPagoId(cajasDetails.getFormaPagoId());
+            cajas.setFacturaId(cajasDetails.getFacturaId());
 
             return cajasRepository.save(cajas);
         } else {

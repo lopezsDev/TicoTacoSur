@@ -38,7 +38,7 @@ public class FacturaService {
             factura.setMontoTotal(facturaDetails.getMontoTotal());
             factura.setDetalleFacturaId(facturaDetails.getDetalleFacturaId());
             factura.setSucursalId(facturaDetails.getSucursalId());
-            factura.setPedidoClienteId(facturaDetails.getPedidoClienteId());
+            factura.setPedidoCliente(facturaDetails.getPedidoCliente());
             factura.setMonedaId(facturaDetails.getMonedaId());
 
             return facturaRepository.save(factura);

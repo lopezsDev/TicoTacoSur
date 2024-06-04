@@ -38,6 +38,7 @@ public class EmpleadoService {
             empleado.setApellidoEmpleado(empleadoDetails.getApellidoEmpleado());
             empleado.setFechaContratacion(empleadoDetails.getFechaContratacion());
             empleado.setPuestoId(empleadoDetails.getPuestoId());
+            empleado.setContactoId(empleadoDetails.getContactoId());
             empleado.setPlanillaId(empleadoDetails.getPlanillaId());
             empleado.setPermisoId(empleadoDetails.getPermisoId());
 
