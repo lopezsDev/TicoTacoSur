@@ -1,11 +1,9 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -33,4 +31,7 @@ public class PlanillaModel {
 
     @Column(name = "C_BONIFICACION")
     private long bonificacion;
+
+    @OneToMany(mappedBy = "planillaId")
+    private List<AdminRestauranteModel> adminRestaurantes;
 }

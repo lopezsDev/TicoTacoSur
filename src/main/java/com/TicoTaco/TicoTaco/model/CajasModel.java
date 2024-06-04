@@ -25,9 +25,6 @@ public class CajasModel {
     @Column(name = "M_FINAL")
     private double montoFinal;
 
-    @Column(name = "C_FACTURA")
-    private int facturaId;
-
     @OneToOne
     @JoinColumn(name = "C_FACTURA", nullable = false)
     private FacturaModel factura;
