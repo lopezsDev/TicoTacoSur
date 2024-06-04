@@ -27,4 +27,7 @@ ContactoModel {
     @OneToMany (mappedBy = "contactoId")
     private Set<ContactoModel> contactoEmpleadoId;
 
+    @OneToMany (mappedBy = "contactoEmpresaexpressId")
+    private Set<EmpresaExpressModel> empresaExpressId;
+
 }
