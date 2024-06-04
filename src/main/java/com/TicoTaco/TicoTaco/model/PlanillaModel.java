@@ -37,4 +37,7 @@ public class PlanillaModel {
 
     @OneToMany(mappedBy = "planillaId")
     private List<AdminRestauranteModel> adminRestaurantes;
+
+    @OneToMany(mappedBy = "planillaId")
+    private Set<PlanillaModel> planillaEmpleadoId;
 }

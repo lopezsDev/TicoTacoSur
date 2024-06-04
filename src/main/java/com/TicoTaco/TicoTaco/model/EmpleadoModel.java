@@ -3,6 +3,8 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "EMPLEADO")
@@ -21,16 +23,20 @@ public class EmpleadoModel {
     @Column(name = "F_CONTRATACION")
     private java.util.Date fechaContratacion;
 
-    @JoinColumn(name = "C_PUESTO", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "C_PUESTO", nullable = false )
     private PuestoModel puestoId;
 
-    @JoinColumn(name = "C_CONTACTO", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "C_CONTACTO", nullable = false )
     private ContactoModel contactoId;
 
-    @JoinColumn(name = "C_PLANILLA", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "C_Planilla", nullable = false )
     private PlanillaModel planillaId;
 
-    @JoinColumn(name = "C_PERMISO", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "C_PERMISO", nullable = false )
     private PermisoModel permisoId;
 }
 
