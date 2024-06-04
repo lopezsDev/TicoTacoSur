@@ -19,7 +19,7 @@ public class SucursalModel {
 
     @OneToOne
     @JoinColumn(name = "C_DIRECCION", nullable = false)
-    private DireccionModel direccion;
+    private DireccionModel direccionId;
 
     @Column(name = "C_CONTACTO")
     private long contacto;
