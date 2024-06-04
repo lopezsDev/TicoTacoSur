@@ -42,6 +42,7 @@ public class TipoCostosOperativosService {
     }
 
     public void deleteTipoCostosOperativos(long id) {
+
         tipoCostosOperativosRepository.deleteById(id);
     }
 }
