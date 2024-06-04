@@ -38,6 +38,7 @@ public class BonificacionService {
         BonificacionModel bonificacion = bonificacionRepository.findById(id).orElse(null);
 
         if (bonificacion != null) {
+            bonificacion.setBonificacionId(bonificacionDetails.getBonificacionId());
             bonificacion.setNombreBonificacion(bonificacionDetails.getNombreBonificacion());
             bonificacion.setMontobonificacion(bonificacionDetails.getMontobonificacion());
             return bonificacionRepository.save(bonificacion);

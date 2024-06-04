@@ -35,7 +35,7 @@ public class PermisoService {
 
         if (permiso != null) {
             permiso.setPermisoId(permisoDetails.getPermisoId());
-            permiso.setTipo(permisoDetails.getTipo());
+            permiso.setTipoPermisoId(permisoDetails.getTipoPermisoId());
             permiso.setEstado(permisoDetails.getEstado());
             permiso.setMotivo(permisoDetails.getMotivo());
             permiso.setFechainicio(permisoDetails.getFechainicio());

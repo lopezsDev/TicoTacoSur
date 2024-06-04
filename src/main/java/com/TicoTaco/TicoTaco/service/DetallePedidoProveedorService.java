@@ -34,6 +34,7 @@ public class DetallePedidoProveedorService {
         DetallePedidoProveedorModel detallePedidoProveedor = detallePedidoProveedorRepository.findById(id).orElse(null);
 
         if (detallePedidoProveedor != null) {
+            detallePedidoProveedor.setDetallePedidoProveedorId(detallePedidoProveedorDetails.getDetallePedidoProveedorId());
             detallePedidoProveedor.setCantidad(detallePedidoProveedorDetails.getCantidad());
             detallePedidoProveedor.setPrecioUnitario(detallePedidoProveedorDetails.getPrecioUnitario());
 

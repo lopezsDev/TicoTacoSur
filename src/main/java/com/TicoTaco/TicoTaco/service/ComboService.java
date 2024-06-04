@@ -34,6 +34,7 @@ public class ComboService {
         ComboModel combo = comboRepository.findById(id).orElse(null);
 
         if (combo != null) {
+            combo.setComboId(comboDetails.getComboId());
             combo.setNombreCombo(comboDetails.getNombreCombo());
             combo.setDescripcion(comboDetails.getDescripcion());
             combo.setPrecio(comboDetails.getPrecio());

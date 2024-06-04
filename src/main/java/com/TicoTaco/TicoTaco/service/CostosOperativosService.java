@@ -39,7 +39,7 @@ public class CostosOperativosService {
             costosOperativos.setDescripcion(costosOperativosDetails.getDescripcion());
             costosOperativos.setCostodia(costosOperativosDetails.getCostodia());
             costosOperativos.setMonedaId(costosOperativosDetails.getMonedaId());
-            costosOperativos.setTipoCostosOperativosId(costosOperativosDetails.getTipoCostosOperativosId());
+            costosOperativos.setTipocosto(costosOperativosDetails.getTipocosto());
             return costosOperativosRepository.save(costosOperativos);
         } else {
             return null;

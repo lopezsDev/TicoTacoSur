@@ -38,6 +38,7 @@ public class CategoriaService {
         CategoriaModel categoria = categoriaRepository.findById(id).orElse(null);
 
         if (categoria != null) {
+            categoria.setCategoriaId(categoriaDetails.getCategoriaId());
             categoria.setNombreCategoria(categoriaDetails.getNombreCategoria());
             categoria.setDescripcion(categoriaDetails.getDescripcion());
 

@@ -34,6 +34,7 @@ public class DistritoService {
         DistritoModel distrito = distritoRepository.findById(id).orElse(null);
 
         if (distrito != null) {
+            distrito.setDistritoId(distritoDetails.getDistritoId());
             distrito.setDistritoNombre(distritoDetails.getDistritoNombre());
             distrito.setCantonId(distritoDetails.getCantonId());
 

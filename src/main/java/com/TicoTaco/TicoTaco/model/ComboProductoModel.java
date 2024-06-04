@@ -2,7 +2,9 @@ package com.TicoTaco.TicoTaco.model;
 
 import com.TicoTaco.TicoTaco.serializable.ComboProductoId;
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "COMBO_PRODUCTO")
 @IdClass(ComboProductoId.class)

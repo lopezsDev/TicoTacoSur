@@ -1,9 +1,12 @@
 package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Data
 @Entity
 @Table(name = "BODEGA")
 public class BodegaModel {
