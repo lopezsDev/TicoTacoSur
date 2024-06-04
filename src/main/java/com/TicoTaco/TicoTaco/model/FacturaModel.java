@@ -36,7 +36,10 @@ public class FacturaModel {
     @JoinColumn(name = "C_PEDIDO_CLIENTE", nullable = false)
     private PedidoClienteModel pedidoCliente;
 
+
     @OneToMany(mappedBy = "facturaId")
     private Set<CajasModel> cajaId;
+
+
 }
 
