@@ -26,11 +26,11 @@ public class PlanillaModel {
     @Column(name = "F_FECHA_PAGO")
     private Date fechapago;
 
-    @JoinColumn (name = "C_DEDUCCION", nullable = false)
+    @JoinColumn(name = "C_DEDUCCION", nullable = false)
     private DeduccionesModel deduccionId;
 
-    @Column(name = "C_BONIFICACION")
-    private long bonificacion;
+    @JoinColumn(name = "C_BONIFICACION", nullable = false)
+    private BonificacionModel bonificacionId;
 
     @OneToMany(mappedBy = "planillaId")
     private List<AdminRestauranteModel> adminRestaurantes;
