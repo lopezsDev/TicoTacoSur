@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -34,5 +35,8 @@ public class FacturaModel {
     @ManyToOne
     @JoinColumn(name = "C_PEDIDO_CLIENTE", nullable = false)
     private PedidoClienteModel pedidoCliente;
+
+    @OneToMany(mappedBy = "facturaId")
+    private Set<CajasModel> cajaId;
 }
 
