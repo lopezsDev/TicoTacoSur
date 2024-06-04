@@ -36,6 +36,7 @@ public class PuestoService {
         if (puesto != null) {
             puesto.setNombrePuesto(puestoDetails.getNombrePuesto());
             puesto.setPuestoId(puestoDetails.getPuestoId());
+            puesto.setSalarioBase(puestoDetails.getPuestoId());
 
             return puestoRepository.save(puesto);
         } else {

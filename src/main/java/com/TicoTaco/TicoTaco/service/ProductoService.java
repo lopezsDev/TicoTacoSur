@@ -34,6 +34,7 @@ public class ProductoService {
         ProductoModel producto = productoRepository.findById(id).orElse(null);
 
         if (producto != null) {
+            producto.setProductoId(productoDetails.getProductoId());
             producto.setNombreProducto(productoDetails.getNombreProducto());
             producto.setDescripcion(productoDetails.getDescripcion());
             producto.setPrecio(productoDetails.getPrecio());

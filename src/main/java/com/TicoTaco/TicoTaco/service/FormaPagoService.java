@@ -34,6 +34,7 @@ public class FormaPagoService {
         FormaPagoModel formaPago = formaPagoRepository.findById(id).orElse(null);
 
         if (formaPago != null) {
+            formaPago.setFormaPagoId(formaPagoDetails.getFormaPagoId());
             formaPago.setTipoPago(formaPagoDetails.getTipoPago());
 
             return formaPagoRepository.save(formaPago);

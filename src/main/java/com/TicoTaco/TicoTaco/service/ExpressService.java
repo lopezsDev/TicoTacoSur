@@ -34,6 +34,7 @@ public class ExpressService {
         ExpressModel express = expressRepository.findById(id).orElse(null);
 
         if (express != null) {
+            express.setEmpresaExpressId(expressDetails.getEmpresaExpressId());
             express.setNombreEncargado(expressDetails.getNombreEncargado());
             express.setHoraRetiro(expressDetails.getHoraRetiro());
             express.setHoraEntrega(expressDetails.getHoraEntrega());
