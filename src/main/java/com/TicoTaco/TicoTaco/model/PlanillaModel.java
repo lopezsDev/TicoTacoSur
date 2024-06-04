@@ -26,8 +26,8 @@ public class PlanillaModel {
     @Column(name = "F_FECHA_PAGO")
     private Date fechapago;
 
-    @Column(name = "C_DEDUCCION")
-    private int deduccion;
+    @JoinColumn (name = "C_DEDUCCION", nullable = false)
+    private DeduccionesModel deduccionId;
 
     @Column(name = "C_BONIFICACION")
     private long bonificacion;
