@@ -34,6 +34,7 @@ public class TipoCostosOperativosService {
         TipoCostosOperativosModel tipoCostosOperativos = tipoCostosOperativosRepository.findById(id).orElse(null);
 
         if (tipoCostosOperativos != null) {
+            tipoCostosOperativos.setTipoCostosOperativosId(tipoCostosOperativosDetails.getTipoCostosOperativosId());
             tipoCostosOperativos.setNombreTipoCostosOperativos(tipoCostosOperativosDetails.getNombreTipoCostosOperativos());
             return tipoCostosOperativosRepository.save(tipoCostosOperativos);
         } else {
