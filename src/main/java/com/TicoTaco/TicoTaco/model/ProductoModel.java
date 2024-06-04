@@ -41,4 +41,7 @@ public class ProductoModel {
 
     @OneToMany(mappedBy = "menuId")
     private Set<MenuModel> menuId;
+
+    @OneToMany(mappedBy = "productoId")
+    private Set<BodegaModel> BodegaId;
 }

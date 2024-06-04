@@ -1,9 +1,6 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -24,10 +21,12 @@ public class BodegaModel {
     @Column(name = "F_INGRESO")
     private java.time.LocalDateTime ingreso;
 
-    @Column(name = "C_PRODUCTO")
-    private int producto;
+    @OneToMany
+    @JoinColumn(name = "C_PRODUCTO", nullable = false)
+    private ProductoModel productoId;
 
-    @Column(name = "C_SUCURSAL")
-    private int sucursal;
+    @ManyToOne
+    @JoinColumn(name = "C_SUCURSAL", nullable = false)
+    private SucursalModel sucursalId;
 }
 
