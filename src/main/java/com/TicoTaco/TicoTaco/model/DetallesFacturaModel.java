@@ -25,5 +25,7 @@ public class DetallesFacturaModel {
 
     @OneToMany(mappedBy = "detalleFacturaId")
     private Set<FacturaModel> facturaId;
+
+    /*Falta serializable de detalle_factura_producto*/
 }
 
