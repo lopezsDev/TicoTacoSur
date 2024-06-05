@@ -19,6 +19,9 @@ public class PlanillaModel {
 
     @Column(name = "M_SALARIO_TOTAL")
     private int salariototal;
+
+    @Column(name = "C_MONTO")
+    private int montoId;
     
     @Column(name = "F_FECHA_PAGO")
     private LocalDateTime fechapago;
