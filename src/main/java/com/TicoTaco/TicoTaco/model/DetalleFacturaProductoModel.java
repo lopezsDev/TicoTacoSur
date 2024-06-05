@@ -18,6 +18,5 @@ public class DetalleFacturaProductoModel{
     @Column(name = "C_PRODUCTO")
     private int productoId;
 
-
 }
 
