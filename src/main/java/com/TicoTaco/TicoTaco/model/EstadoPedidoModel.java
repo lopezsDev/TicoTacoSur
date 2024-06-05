@@ -2,6 +2,7 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.util.List;
 
 
 @Data
@@ -15,5 +16,4 @@ public class EstadoPedidoModel {
 
     @Column(name = "T_ESTADO")
     private String estado;
-
 }

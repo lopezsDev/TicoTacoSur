@@ -1,9 +1,11 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
-import java.time.LocalDateTime;
-
+import java.util.Date;
 @Data
 @Entity
 @Table(name = "FACTURA")
@@ -14,7 +16,7 @@ public class FacturaModel {
     private long facturaId;
 
     @Column(name = "F_FECHA_PEDIDO")
-    private LocalDateTime fechaPedido;
+    private Date fechaPedido;
 
     @Column(name = "M_MONTO_TOTAL")
     private double montoTotal;
@@ -25,11 +27,9 @@ public class FacturaModel {
     @Column(name = "C_SUCURSAL")
     private long sucursalId;
 
+    @Column(name = "C_PEDIDO_CLIENTE")
+    private long pedidoClienteId;
+
     @Column(name = "C_MONEDA")
     private long monedaId;
-
-    @Column(name = "C_PEDIDO_CLIENTE")
-    private long pedidoCliente;
-
 }
-
