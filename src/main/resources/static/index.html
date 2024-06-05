@@ -127,8 +127,8 @@
         $(".searchInput").autocomplete({
             source: function(request, response) {
                 $.ajax({
-                    url: "/ticotaco/buscar-clientes",
-                    data: { consulta: request.term },
+                    url: "/api/clientes/buscar",  // URL del endpoint de búsqueda
+                    data: { consulta: request.term },  // Datos enviados al servidor
                     success: function(data) {
                         var suggestions = [];
                         $.each(data, function(index, item) {
@@ -136,31 +136,40 @@
                             suggestions.push(suggestion);
                         });
                         response(suggestions);
+                    },
+                    error: function() {
+                        response([]);
                     }
                 });
             }
         });
 
         $("#searchButton").click(function() {
-            var query = $(".searchInput").val();
+            var query = $(".searchInput").val();  // Obtener el valor de búsqueda
             $.ajax({
-                url: "/ticotaco/buscar-clientes",
-                data: { consulta: query },
+                url: "/api/clientes/buscar",  // URL del endpoint de búsqueda
+                data: { consulta: query },  // Datos enviados al servidor
                 success: function(data) {
                     var searchResults = $("#searchResults");
                     searchResults.empty();
                     if (data.length > 0) {
                         $.each(data, function(index, item) {
-        var cliente = item['D_NOMBRE_CLIENTE'] + ' ' + item['D_APELLIDO_CLIENTE'];
+                            var cliente = item['D_NOMBRE_CLIENTE'] + ' ' + item['D_APELLIDO_CLIENTE'];
                             searchResults.append('<p>' + cliente + '</p>');
                         });
                     } else {
-                    searchResults.append('<p>No se encontraron resultados.</p>');
-                }
+                        searchResults.append('<p>No se encontraron resultados.</p>');
+                    }
+                },
+                error: function() {
+                    var searchResults = $("#searchResults");
+                    searchResults.empty();
+                    searchResults.append('<p>Error al buscar clientes.</p>');
                 }
             });
         });
     });
 </script>
+
 </body>
 </html>

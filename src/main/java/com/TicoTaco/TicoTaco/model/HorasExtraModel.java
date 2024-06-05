@@ -12,12 +12,12 @@ import lombok.Data;
 public class HorasExtraModel {
 
     @Id
-    @Column(name = "C_HORAS_EXTRA")
+    @Column(name = "C_HORAS_EXTRAS")
     private long horasExtraId;
 
-    @Column(name = "Q_HORAS_EXTRA")
+    @Column(name = "Q_HORAS_EXTRAS")
     private int cantidadHoras;
 
-    @Column(name = "M_HORAS_EXTRA")
+    @Column(name = "M_HORAS_EXTRAS")
     private double montoHorasExtra;
 }
