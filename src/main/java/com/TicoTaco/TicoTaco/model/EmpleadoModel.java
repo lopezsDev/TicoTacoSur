@@ -2,8 +2,8 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.time.LocalDateTime;
 
-import java.util.Set;
 
 @Data
 @Entity
@@ -22,7 +22,7 @@ public class EmpleadoModel {
     private String apellidoEmpleado;
 
     @Column(name = "F_CONTRATACION")
-    private java.util.Date fechaContratacion;
+    private LocalDateTime fechaContratacion;
 
     @Column(name = "C_PUESTO")
     private long puestoId;

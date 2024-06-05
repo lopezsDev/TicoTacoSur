@@ -1,8 +1,5 @@
 package com.TicoTaco.TicoTaco.model;
 
-
-import java.util.Set;
-
 import jakarta.persistence.*;
 import lombok.Data;
 

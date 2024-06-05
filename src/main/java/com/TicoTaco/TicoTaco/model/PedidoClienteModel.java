@@ -2,8 +2,9 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.Date;
-import java.util.Set;
+
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity
@@ -19,7 +20,7 @@ public class PedidoClienteModel {
     private int mesaAsignada;
 
     @Column(name = "F_TIEMPO_PREPARACION")
-    private Data tiempoPreparacion;
+    private LocalDateTime tiempoPreparacion;
 
     @Column(name = "C_ESTADO")
     private long estadoId;

@@ -3,7 +3,7 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -18,7 +18,7 @@ public class ProveedorModel {
     private String nombreProveedor;
 
     @Column(name = "F_DIAS_ENTREGA")
-    private Date diasentrega;
+    private LocalDateTime diasentrega;
 
     @Column(name = "C_CONTACTO")
     private long contactoId;

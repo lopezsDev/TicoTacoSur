@@ -2,7 +2,9 @@ package com.TicoTaco.TicoTaco.model;
 
 import com.TicoTaco.TicoTaco.serializable.ProductoProveedorId;
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "PRODUCTO_PROVEEDORES")
 @IdClass(ProductoProveedorId.class)

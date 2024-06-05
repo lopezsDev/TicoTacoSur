@@ -6,9 +6,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "HORAS_EXTRA")
+@Entity
+@Table(name = "HORAS_EXTRAS")
 public class HorasExtraModel {
 
     @Id

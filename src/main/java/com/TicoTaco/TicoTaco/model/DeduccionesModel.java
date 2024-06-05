@@ -2,9 +2,8 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.time.LocalDateTime;
 
-import java.nio.MappedByteBuffer;
-import java.util.Set;
 
 @Data
 @Entity
@@ -22,7 +21,7 @@ public class DeduccionesModel {
     private double cantidadDeduccion;
 
     @Column(name = "F_PERIODO_APLICACION")
-    private java.util.Date periodoAplicacion;
+    private LocalDateTime periodoAplicacion;
 
     @Column(name = "D_ESTADO_DEDUCCION")
     private String estadoDeduccion;

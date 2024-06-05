@@ -2,8 +2,9 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.Date;
-import java.util.Set;
+
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity
@@ -19,10 +20,10 @@ public class ExpressModel {
     private String nombreEncargado;
 
     @Column(name = "F_HORA_RETIRO")
-    private Date horaRetiro;
+    private LocalDateTime horaRetiro;
 
     @Column(name = "F_HORA_ENTREGA")
-    private Date horaEntrega;
+    private LocalDateTime horaEntrega;
 
     @Column(name = "C_EMPRESA_EXPRESS", nullable = false)
     private long empresaExpressId;

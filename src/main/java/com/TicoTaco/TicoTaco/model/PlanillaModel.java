@@ -2,9 +2,8 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -22,7 +21,7 @@ public class PlanillaModel {
     private int salariototal;
     
     @Column(name = "F_FECHA_PAGO")
-    private Date fechapago;
+    private LocalDateTime fechapago;
 
     @Column(name = "C_DEDUCCION")
     private long deduccionId;

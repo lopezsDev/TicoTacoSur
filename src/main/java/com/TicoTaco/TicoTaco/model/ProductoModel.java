@@ -3,8 +3,7 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -26,7 +25,7 @@ public class ProductoModel {
     private BigDecimal precio;
 
     @Column(name = "F_VENCIMIENTO")
-    private Date vencimiento;
+    private LocalDateTime vencimiento;
 
     @Column(name = "C_CATEGORIA")
     private long categoriaId;

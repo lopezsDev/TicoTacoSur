@@ -6,7 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity
@@ -18,10 +19,10 @@ public class PermisoModel {
     private long permisoId;
 
     @Column(name = "F_INICIO")
-    private Date fechainicio;
+    private LocalDateTime fechainicio;
 
     @Column(name = "F_FIN")
-    private Date fechafinal;
+    private LocalDateTime fechafinal;
 
     @Column(name = "D_MOTIVO")
     private String motivo;

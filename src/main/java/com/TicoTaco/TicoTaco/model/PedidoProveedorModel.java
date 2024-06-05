@@ -3,7 +3,8 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity
@@ -16,7 +17,7 @@ public class PedidoProveedorModel {
     private long pedidoProveedorId;
 
     @Column(name = "F_PEDIDO")
-    private Date fechaPedido;
+    private LocalDateTime fechaPedido;
 
     @Column(name = "M_MONTO_TOTAL")
     private BigDecimal montoTotal;

@@ -2,9 +2,6 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.boot.registry.selector.spi.StrategyCreator;
-
-import java.util.Set;
 
 @Data
 @Entity

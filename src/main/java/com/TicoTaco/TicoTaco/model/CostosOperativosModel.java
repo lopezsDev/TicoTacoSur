@@ -2,13 +2,11 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -22,7 +20,7 @@ public class CostosOperativosModel {
     private long costosOperativosId;
 
     @Column(name = "F_DIA_PAGO")
-    private java.time.LocalDateTime diapago;
+    private LocalDateTime diapago;
 
     @Column(name = "M_COSTE")
     private int costodia;
