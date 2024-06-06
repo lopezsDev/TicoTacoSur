@@ -3,6 +3,8 @@ package com.TicoTaco.TicoTaco.controller;
 import com.TicoTaco.TicoTaco.model.ClienteModel;
 import com.TicoTaco.TicoTaco.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,24 +32,37 @@ public class ClienteController {
         return clienteService.getAllClientes();
     }
 
+
     @GetMapping("/{id}")
-    public ClienteModel getClienteById(@PathVariable Long id) {
-        return clienteService.getClienteById(id);
+    public ResponseEntity<ClienteModel> getClienteById(@PathVariable Long id) {
+        ClienteModel cliente = clienteService.getClienteById(id);
+        if (cliente != null) {
+            return new ResponseEntity<>(cliente, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping
-    public ClienteModel createCliente(@RequestBody ClienteModel cliente) {
-        return clienteService.createCliente(cliente);
+    public ResponseEntity<ClienteModel> createCliente(@RequestBody ClienteModel cliente) {
+        ClienteModel newCliente = clienteService.createCliente(cliente);
+        return new ResponseEntity<>(newCliente, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ClienteModel updateCliente(@PathVariable Long id, @RequestBody ClienteModel clienteDetails) {
-        return clienteService.updateCliente(id, clienteDetails);
+    public ResponseEntity<ClienteModel> updateCliente(@PathVariable Long id, @RequestBody ClienteModel clienteDetails) {
+        ClienteModel updatedCliente = clienteService.updateCliente(id, clienteDetails);
+        if (updatedCliente != null) {
+            return new ResponseEntity<>(updatedCliente, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCliente(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
         clienteService.deleteCliente(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

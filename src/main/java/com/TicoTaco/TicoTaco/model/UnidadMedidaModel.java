@@ -11,8 +11,7 @@ public class UnidadMedidaModel {
 
     @Id
     @Column(name = "C_MEDIDA")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long medida;
+    private int medida;
 
     @Column(name = "D_ABREVIATURA")
     private String abreviatura;
