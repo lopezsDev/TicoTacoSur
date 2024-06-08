@@ -13,6 +13,7 @@ import java.util.Set;
 public class ProveedorModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_PROVEEDOR")
     private Long proveedorId;
 
@@ -22,11 +23,13 @@ public class ProveedorModel {
     @Column(name = "F_DIAS_ENTREGA")
     private LocalDateTime diasentrega;
 
-    @Column(name = "C_CONTACTO")
-    private long contactoId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_CONTACTO", nullable = false)
+    private ContactoModel contactoId;
 
-    @Column(name = "C_DIRECCION")
-    private long direccionId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_DIRECCION", nullable = false)
+    private DireccionModel direccionId;
 
     @OneToMany(mappedBy = "proveedorId", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<PedidoProveedorModel> pedidoProveedor = new HashSet<>();
