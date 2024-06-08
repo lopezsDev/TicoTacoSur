@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Data
@@ -12,29 +14,38 @@ import java.time.LocalDateTime;
 public class PedidoClienteModel {
 
     @Id
-    @Column(name = "C_PEDIDO_CLIENTE")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long pedidoClienteId;
+    @Column(name = "C_PEDIDO_CLIENTE")
+    private Long pedidoClienteId;
 
     @Column(name = "N_MESA_ASIGNADA")
-    private int mesaAsignada;
+    private Integer mesaAsignada;
 
     @Column(name = "F_TIEMPO_PREPARACION")
     private LocalDateTime tiempoPreparacion;
 
-    @Column(name = "C_ESTADO")
-    private long estadoId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_ESTADO", insertable = false, updatable = false)
+    private EstadoPedidoModel estadoId;
 
-    @Column(name = "C_EXPRESS")
-    private long expressId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_EXPRESS", insertable = false, updatable = false)
+    private ExpressModel expressId;
 
-    @Column(name = "C_EMPLEADO")
-    private long empleadoId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_EMPLEADO", insertable = false, updatable = false)
+    private EmpleadoModel empleadoId;
 
-    @Column(name = "C_CLIENTE")
-    private long clienteId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_CLIENTE", insertable = false, updatable = false)
+    private ClienteModel clienteId;
 
-    @Column(name = "C_MENU")
-    private long menuId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_MENU", insertable = false, updatable = false)
+    private MenuModel menuId;
+
+    @OneToMany(mappedBy = "pedidoClienteId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<FacturaModel> facturas = new HashSet<>();
 }
+
 

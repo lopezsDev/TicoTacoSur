@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 public class PedidoProveedorModel {
 
     @Id
-    @Column(name = "C_PEDIDO_PROVEEDOR")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long pedidoProveedorId;
+    @Column(name = "C_PEDIDO_PROVEEDOR")
+    private Long pedidoProveedorId;
 
     @Column(name = "F_PEDIDO")
     private LocalDateTime fechaPedido;
@@ -22,12 +22,19 @@ public class PedidoProveedorModel {
     @Column(name = "M_MONTO_TOTAL")
     private BigDecimal montoTotal;
 
-    @Column(name = "C_SUCURSAL")
-    private long sucursalId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_SUCURSAL", insertable = false, updatable = false)
+    private SucursalModel sucursalId;
 
-    @Column(name = "C_PROVEEDOR")
-    private long proveedorId;
 
-    @Column(name = "C_DETALLE_PEDIDO_PROVEEDOR")
-    private long detallePedidoProveedorId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_PROVEEDOR", insertable = false, updatable = false)
+    private ProveedorModel proveedorId;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_DETALLE_PEDIDO_PROVEEDOR", insertable = false, updatable = false)
+    private DetallePedidoProveedorModel detallePedidoProveedorId;
+
 }
+

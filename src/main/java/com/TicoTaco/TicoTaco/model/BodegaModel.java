@@ -5,6 +5,8 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -13,7 +15,7 @@ public class BodegaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_BODEGA")
-    private long bodegaId;
+    private Long bodegaId;
 
     @Column(name = "Q_STOCK")
     private BigDecimal stock;
@@ -24,9 +26,15 @@ public class BodegaModel {
     @Column(name = "F_INGRESO")
     private LocalDateTime ingreso;
 
-    @Column(name = "C_PRODUCTO")
-    private int productoId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_PRODUCTO", insertable = false, updatable = false)
+    private ProductoModel productoId;
 
-    @Column(name = "C_SUCURSAL")
-    private int sucursalId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_SUCURSAL", insertable = false, updatable = false)
+    private SucursalModel sucursalId;
+
+    @OneToMany(mappedBy = "bodegaId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<DetallePedidoProveedorBodegaModel> detallePedidoProveedorBodega = new HashSet<>();
 }
+

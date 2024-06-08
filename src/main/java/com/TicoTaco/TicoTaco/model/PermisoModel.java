@@ -1,12 +1,11 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Data
@@ -15,14 +14,15 @@ import java.time.LocalDateTime;
 public class PermisoModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_PERMISO")
-    private long permisoId;
+    private Long permisoId;
 
     @Column(name = "F_INICIO")
-    private LocalDateTime fechainicio;
+    private LocalDateTime fechaInicio;
 
     @Column(name = "F_FIN")
-    private LocalDateTime fechafinal;
+    private LocalDateTime fechaFinal;
 
     @Column(name = "D_MOTIVO")
     private String motivo;
@@ -30,6 +30,10 @@ public class PermisoModel {
     @Column(name = "T_ESTADO")
     private String estado;
 
-    @Column(name = "C_TIPO_PERMISO")
-    private long tipoPermisoId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_TIPO_PERMISO", insertable = false, updatable = false)
+    private TipoPermisoModel tipoPermisoId;
+
+    @OneToMany(mappedBy = "permisoId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<EmpleadoModel> empleados = new HashSet<>();
 }

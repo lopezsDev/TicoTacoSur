@@ -7,16 +7,22 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "CONTACTO_CLIENTE")
-@IdClass(ClienteContactoId.class)
-public class ClienteContactoModel{
+public class ClienteContactoModel {
 
-    @Id
-    @Column(name = "C_CONTACTO")
-    private int contactoId;
+    @EmbeddedId
+    private ClienteContactoId id;
 
-    @Id
-    @Column(name = "C_CLIENTE")
-    private int clienteId;
+    @MapsId("contacto")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_CONTACTO", nullable = false)
+    private ContactoModel contactoId;
 
+    @MapsId("cliente")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_CLIENTE", nullable = false)
+    private ClienteModel clienteId;
 }
+
+
+
 

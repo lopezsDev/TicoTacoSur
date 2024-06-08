@@ -2,37 +2,53 @@ package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "COSTOS_OPERATIVOS")
 public class CostosOperativosModel {
-
     @Id
-    @Column(name = "C_COSTOS_OPERATIVOS")
-    private long costosOperativosId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "C_COSTOS_OPERATIVO", nullable = false)
+    private Long costosOperativoId;
 
-    @Column(name = "F_DIA_PAGO")
-    private LocalDateTime diapago;
+    @NotNull
+    @Column(name = "F_DIA_PAGO", nullable = false)
+    private Instant diaPago;
 
-    @Column(name = "M_COSTE")
-    private int costodia;
+    @NotNull
+    @Column(name = "M_COSTE", nullable = false)
+    private BigDecimal coste;
 
-    @Column(name = "D_DESCRIPCION")
+    @Size(max = 255)
+    @NotNull
+    @Column(name = "D_DESCRIPCION", nullable = false)
     private String descripcion;
 
-    @Column(name = "C_TIPO_COSTO_OPERATIVO")
-    private String tipocosto;
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_TIPO_COSTO_OPERATIVO", nullable = false)
+    private TipoCostosOperativosModel tipoCosto;
 
-    @Column(name = "C_MONEDA")
-    private long monedaId;
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_MONEDA", nullable = false)
+    private MonedaModel monedaId;
 
+    @OneToMany(mappedBy = "costosOperativosId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<AdminRestauranteModel> adminRestaurantes = new HashSet<>();
 }
-

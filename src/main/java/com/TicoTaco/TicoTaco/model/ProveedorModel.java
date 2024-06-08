@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -12,7 +14,7 @@ public class ProveedorModel {
 
     @Id
     @Column(name = "C_PROVEEDOR")
-    private long proveedorId;
+    private Long proveedorId;
 
     @Column(name = "D_NOMBRE_PROVEEDOR")
     private String nombreProveedor;
@@ -25,6 +27,12 @@ public class ProveedorModel {
 
     @Column(name = "C_DIRECCION")
     private long direccionId;
+
+    @OneToMany(mappedBy = "proveedorId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<PedidoProveedorModel> pedidoProveedor = new HashSet<>();
+
+    @OneToMany(mappedBy = "proveedorId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ProductoProveedorModel> productoProveedor = new HashSet<>();
 
 }
 

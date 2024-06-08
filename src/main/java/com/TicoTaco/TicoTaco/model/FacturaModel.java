@@ -1,19 +1,20 @@
 package com.TicoTaco.TicoTaco.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "FACTURA")
 public class FacturaModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_FACTURA")
-    private long facturaId;
+    private Long facturaId;
 
     @Column(name = "F_FECHA_PEDIDO")
     private Date fechaPedido;
@@ -21,15 +22,22 @@ public class FacturaModel {
     @Column(name = "M_MONTO_TOTAL")
     private double montoTotal;
 
-    @Column(name = "C_DETALLE_FACTURA")
-    private long detalleFacturaId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_DETALLE_FACTURA", insertable = false, updatable = false)
+    private DetallesFacturaModel detalleFacturaId;
 
-    @Column(name = "C_SUCURSAL")
-    private long sucursalId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_SUCURSAL", insertable = false, updatable = false)
+    private SucursalModel sucursalId;
 
-    @Column(name = "C_PEDIDO_CLIENTE")
-    private long pedidoClienteId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_PEDIDO_CLIENTE", insertable = false, updatable = false)
+    private PedidoClienteModel pedidoClienteId;
 
-    @Column(name = "C_MONEDA")
-    private long monedaId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_MONEDA", insertable = false, updatable = false)
+    private MonedaModel monedaId;
+
+    @OneToMany(mappedBy = "facturaId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<CajasModel> caja = new HashSet<>();
 }

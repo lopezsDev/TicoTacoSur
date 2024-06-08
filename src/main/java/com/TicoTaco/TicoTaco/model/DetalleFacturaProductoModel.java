@@ -7,16 +7,18 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "DETALLES_FACTURA_PRODUCTO")
-@IdClass(DetalleFacturaProductoId.class)
-public class DetalleFacturaProductoModel{
+public class DetalleFacturaProductoModel {
 
-    @Id
-    @Column(name = "C_DETALLE_FACTURA")
-    private int detalleFacturaId;
+    @EmbeddedId
+    private DetalleFacturaProductoId id;
 
-    @Id
-    @Column(name = "C_PRODUCTO")
-    private int productoId;
+    @MapsId("detalleFacturaId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_DETALLE_FACTURA", nullable = false)
+    private DetallesFacturaModel detalleFacturaId;
 
+    @MapsId("productoId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_PRODUCTO", nullable = false)
+    private ProductoModel productoId;
 }
-

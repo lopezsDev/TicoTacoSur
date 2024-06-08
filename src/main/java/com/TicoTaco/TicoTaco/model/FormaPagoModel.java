@@ -3,6 +3,9 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Data
 @Entity
@@ -10,11 +13,15 @@ import lombok.Data;
 public class FormaPagoModel {
 
     @Id
-    @Column(name = "C_FORMA_PAGO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long formaPagoId;
+    @Column(name = "C_FORMA_PAGO")
+    private Long formaPagoId;
 
     @Column(name = "T_TIPO_PAGO")
     private String tipoPago;
+
+    @OneToMany(mappedBy = "formaPagoId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<CajasModel> cajas = new HashSet<>();
 }
+
 

@@ -3,6 +3,8 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Data
@@ -11,9 +13,9 @@ import java.math.BigDecimal;
 public class MenuModel {
 
     @Id
-    @Column(name = "C_MENU")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long menuId;
+    @Column(name = "C_MENU")
+    private Long menuId;
 
     @Column(name = "D_NOMBRE_MENU")
     private String nombreMenu;
@@ -24,14 +26,21 @@ public class MenuModel {
     @Column(name = "M_PRECIO")
     private BigDecimal precio;
 
-    @Column(name = "C_MONEDA")
-    private long monedaId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_MONEDA", insertable = false, updatable = false)
+    private MonedaModel monedaId;
 
-    @Column(name = "C_COMBO")
-    private long comboId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_COMBO", insertable = false, updatable = false)
+    private ComboModel comboId;
 
-    @Column(name = "C_PRODUCTO")
-    private long productoId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_PRODUCTO", insertable = false, updatable = false)
+    private ProductoModel productoId;
+
+    @OneToMany(mappedBy = "menuId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<PedidoClienteModel> pedidoCliente = new HashSet<>();
 
 }
+
 

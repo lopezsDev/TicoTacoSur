@@ -13,7 +13,7 @@ public class AdminRestauranteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_ADMIN")
-    private long adminId;
+    private Long adminId;
 
     @Column(name = "M_GANANCIAS")
     private BigDecimal ganancias;
@@ -21,12 +21,15 @@ public class AdminRestauranteModel {
     @Column(name = "M_PERDIDAS")
     private BigDecimal perdidas;
 
-    @Column(name = "C_SUCURSAL")
-    private int sucursalId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_SUCURSAL", insertable = false, updatable = false)
+    private SucursalModel sucursalId;
 
-    @Column(name = "C_PLANILLA")
-    private int planillaId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_PLANILLA", insertable = false, updatable = false)
+    private PlanillaModel planillaId;
 
-    @Column(name = "C_COSTOS_OPERATIVOS")
-    private int costosOperativosId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_COSTOS_OPERATIVOS", insertable = false, updatable = false)
+    private CostosOperativosModel costosOperativosId;
 }

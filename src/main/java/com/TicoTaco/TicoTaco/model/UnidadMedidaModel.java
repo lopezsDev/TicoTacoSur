@@ -11,7 +11,7 @@ public class UnidadMedidaModel {
 
     @Id
     @Column(name = "C_MEDIDA")
-    private int medida;
+    private Long medida;
 
     @Column(name = "D_ABREVIATURA")
     private String abreviatura;

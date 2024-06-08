@@ -7,16 +7,19 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "COMBO_PRODUCTO")
-@IdClass(ComboProductoId.class)
 public class ComboProductoModel {
 
-    @Id
-    @Column(name = "C_COMBO")
-    private int comboId;
+    @EmbeddedId
+    private ComboProductoId id;
 
-    @Id
-    @Column(name = "C_PRODUCTO")
-    private int productoId;
+    @MapsId("comboId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_COMBO", nullable = false)
+    private ComboModel comboId;
 
+    @MapsId("productoId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_PRODUCTO", nullable = false)
+    private ProductoModel productoId;
 }
 

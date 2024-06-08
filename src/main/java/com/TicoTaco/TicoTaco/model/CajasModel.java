@@ -1,38 +1,50 @@
 package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "CAJAS")
 public class CajasModel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "C_CAJAS")
-    private long cajasId;
+    private Long cajasId;
 
-    @Column(name = "F_APERTURA")
-    private LocalDateTime apertura;
+    @NotNull
+    @Column(name = "F_APERTURA", nullable = false)
+    private Instant apertura;
 
-    @Column(name = "F_CIERRE")
-    private LocalDateTime cierre;
+    @NotNull
+    @Column(name = "F_CIERRE", nullable = false)
+    private Instant cierre;
 
-    @Column(name = "M_INICIAL")
+    @NotNull
+    @Column(name = "M_INICIAL", nullable = false)
     private BigDecimal inicial;
 
-    @Column(name = "M_FINAL")
+    @NotNull
+    @Column(name = "M_FINAL", nullable = false)
     private BigDecimal finalMonto;
 
-    @Column(name = "C_FORMA_PAGO")
-    private int formaPagoId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_FORMA_PAGO", insertable = false, updatable = false)
+    private FormaPagoModel formaPagoId;
 
-    @Column(name = "C_FACTURA")
-    private int facturaId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_FACTURA", insertable = false, updatable = false)
+    private FacturaModel facturaId;
+
+    @OneToMany(mappedBy = "cajaId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<SucursalModel> sucursal = new HashSet<>();
 
 }
+
 

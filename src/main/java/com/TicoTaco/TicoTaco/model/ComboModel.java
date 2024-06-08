@@ -3,6 +3,7 @@ package com.TicoTaco.TicoTaco.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -11,9 +12,9 @@ import java.util.Set;
 public class ComboModel {
 
     @Id
-    @Column(name = "C_COMBO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long comboId;
+    @Column(name = "C_COMBO")
+    private Long comboId;
 
     @Column(name = "D_NOMBRE_COMBO")
     private String nombreCombo;
@@ -24,5 +25,7 @@ public class ComboModel {
     @Column(name = "M_PRECIO")
     private double precio;
 
+    @OneToMany(mappedBy = "comboId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ComboProductoModel> combos = new HashSet<>();
 }
 

@@ -11,7 +11,7 @@ public class TipoCostosOperativosModel {
     @Id
     @Column(name = "C_TIPO_COSTOS_OPERATIVOS")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long tipoCostosOperativosId;
+    private Long tipoCostosOperativosId;
 
     @Column(name = "D_NOMBRE_TIPO_COSTOS_OPERATIVOS")
     private String nombreTipoCostosOperativos;

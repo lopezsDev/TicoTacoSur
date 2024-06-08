@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Data
@@ -12,9 +14,9 @@ import java.time.LocalDateTime;
 public class ExpressModel {
 
     @Id
-    @Column(name = "C_EXPRESS")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long expressId;
+    @Column(name = "C_EXPRESS")
+    private Long expressId;
 
     @Column(name = "D_NOMBRE_ENCARGADO")
     private String nombreEncargado;
@@ -25,10 +27,17 @@ public class ExpressModel {
     @Column(name = "F_HORA_ENTREGA")
     private LocalDateTime horaEntrega;
 
-    @Column(name = "C_EMPRESA_EXPRESS", nullable = false)
-    private long empresaExpressId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_EMPRESA_EXPRESS", insertable = false, updatable = false)
+    private EmpresaExpressModel empresaExpressId;
 
-    @Column(name = "C_CONTACTO", nullable = false)
-    private long contactoId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_CONTACTO", insertable = false, updatable = false)
+    private ContactoModel contactoId;
+
+
+    @OneToMany(mappedBy = "expressId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<PedidoClienteModel> pedidosCliente = new HashSet<>();
 }
 

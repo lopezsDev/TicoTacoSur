@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import lombok.Data;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -13,7 +18,7 @@ public class ProductoModel {
     @Id
     @Column(name = "C_PRODUCTO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long productoId;
+    private Long productoId;
 
     @Column(name = "D_NOMBRE_PRODUCTO")
     private String nombreProducto;
@@ -27,9 +32,21 @@ public class ProductoModel {
     @Column(name = "F_VENCIMIENTO")
     private LocalDateTime vencimiento;
 
-    @Column(name = "C_CATEGORIA")
-    private long categoriaId;
+    @ManyToOne
+    @JoinColumn(name = "C_CATEGORIA", nullable = false)
+    private CategoriaModel categoriaId;
 
-    @Column(name = "C_MEDIDA")
-    private long medidaId;
+    @ManyToOne
+    @JoinColumn(name = "C_MEDIDA", nullable = false)
+    private UnidadMedidaModel medidaId;
+
+    @OneToMany(mappedBy = "productoId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ComboProductoModel> combo = new HashSet<>();
+
+    @OneToMany(mappedBy = "productoId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<DetalleFacturaProductoModel> detalleFacturaProducto = new HashSet<>();
+
+    @OneToMany(mappedBy = "productoId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ProductoProveedorModel> productoProveedor = new HashSet<>();
 }
+

@@ -34,12 +34,10 @@ public class PlanillaService {
 
         if (planilla != null) {
             planilla.setPlanillaId(planilla.getPlanillaId());
-            planilla.setHorasextras(planillaDetails.getHorasextras());
-            planilla.setSalariototal(planillaDetails.getSalariototal());
-            /* planilla.setSalariobase(planillaDetails.getSalariobase());*/
-            /* falta planilla C_Puesto
-            * planilla.setPuestoId.(planillaDetails.getPuesto());*/
-            planilla.setFechapago(planillaDetails.getFechapago());
+            planilla.setHorasExtraId(planillaDetails.getHorasExtraId());
+            planilla.setSalarioTotal(planillaDetails.getSalarioTotal());
+            planilla.setPuestoId(planillaDetails.getPuestoId());
+            planilla.setFechaPago(planillaDetails.getFechaPago());
             planilla.setDeduccionId(planillaDetails.getDeduccionId());
             planilla.setBonificacionId(planillaDetails.getBonificacionId());
             return planillaRepository.save(planilla);

@@ -7,16 +7,19 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "SUCURSAL_EMPLEADO")
-@IdClass(SucursalEmpleadoId.class)
-public class SucursalEmpleadoModel{
+public class SucursalEmpleadoModel {
 
-    @Id
-    @Column(name = "C_EMPLEADO")
-    private int empleadoId;
+    @EmbeddedId
+    private SucursalEmpleadoId id;
 
-    @Id
-    @Column(name = "C_SUCURSAL")
-    private int sucursalId;
+    @MapsId("empleadoId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_EMPLEADO", nullable = false)
+    private EmpleadoModel empleadoId;
 
+    @MapsId("sucursalId")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "C_SUCURSAL", nullable = false)
+    private SucursalModel sucursalId;
 }
 

@@ -124,6 +124,7 @@ WHERE TABLE_TYPE = 'BASE TABLE';
 - D_NOMBRE_EMPLEADO: varchar
 - D_APELLIDO_EMPLEADO: varchar
 - F_CONTRATACION: datetime
+- F_CONTACTO: varchar
 - C_PUESTO: int
 - C_PLANILLA: int
 - C_PERMISO: int

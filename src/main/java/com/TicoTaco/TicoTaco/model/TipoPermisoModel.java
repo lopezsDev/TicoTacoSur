@@ -12,7 +12,7 @@ public class TipoPermisoModel {
     @Id
     @Column(name = "C_TIPO_PERMISO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long tipoPermisoId;
+    private Long tipoPermisoId;
 
     @Column(name = "T_NOMBRE_PERMISO")
     private String nombrePermiso;

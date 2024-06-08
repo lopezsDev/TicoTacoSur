@@ -38,8 +38,8 @@ public class PermisoService {
             permiso.setTipoPermisoId(permisoDetails.getTipoPermisoId());
             permiso.setEstado(permisoDetails.getEstado());
             permiso.setMotivo(permisoDetails.getMotivo());
-            permiso.setFechainicio(permisoDetails.getFechainicio());
-            permiso.setFechafinal(permisoDetails.getFechafinal());
+            permiso.setFechaInicio(permisoDetails.getFechaInicio());
+            permiso.setFechaFinal(permisoDetails.getFechaFinal());
 
             return permisoRepository.save(permiso);
         } else {
