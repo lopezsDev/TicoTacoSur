@@ -18,7 +18,7 @@ public class FrecuenciaModel {
     private Long frecuenciaId;
 
     @Column(name = "T_TIPO_CLIENTE")
-    private int tipoCliente;
+    private String tipoCliente;
 
     @OneToMany(mappedBy = "frecuenciaId", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ClienteModel> clientes = new HashSet<>();

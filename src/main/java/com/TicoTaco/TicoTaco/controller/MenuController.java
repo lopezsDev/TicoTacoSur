@@ -1,5 +1,7 @@
 package com.TicoTaco.TicoTaco.controller;
 
+import com.TicoTaco.TicoTaco.dto.MenuDTO;
+import com.TicoTaco.TicoTaco.mapper.MenuMapper;
 import com.TicoTaco.TicoTaco.model.MenuModel;
 import com.TicoTaco.TicoTaco.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,39 +10,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/api/menus")
 public class MenuController {
 
-    private final MenuService menuService;
+    @Autowired
+    private MenuService menuService;
 
     @Autowired
-    public MenuController(MenuService menuService) {
-        this.menuService = menuService;
-    }
+    private MenuMapper menuMapper;
 
     @GetMapping
-    public List<MenuModel> getAllMenus() {
-        return menuService.getAllMenus();
-    }
-
-    @GetMapping("/{id}")
-    public Optional<MenuModel> getMenuById(@PathVariable Long id) {
-        return menuService.getMenuById(id);
+    public ResponseEntity<List<MenuDTO>> getAllMenus() {
+        List<MenuModel> menus = menuService.getAllMenus();
+        List<MenuDTO> menusDTO = menus.stream()
+                .map(menuMapper::toDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(menusDTO, HttpStatus.OK);
     }
 
     @PostMapping
-    public MenuModel createMenu(@RequestBody MenuModel menu) {
-        return menuService.createMenu(menu);
-    }
-
-    @PutMapping("/{id}")
-    public MenuModel updateMenu(@PathVariable Long id, @RequestBody MenuModel menuDetails) {
-        return menuService.updateMenu(id, menuDetails);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteMenu(@PathVariable Long id) {
-        menuService.deleteMenu(id);
+    public ResponseEntity<MenuDTO> createMenu(@RequestBody MenuDTO menuDTO) {
+        MenuModel menu = menuMapper.toEntity(menuDTO);
+        MenuModel createdMenu = menuService.createMenu(menu);
+        return new ResponseEntity<>(menuMapper.toDto(createdMenu), HttpStatus.CREATED);
     }
 }

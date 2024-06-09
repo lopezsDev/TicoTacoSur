@@ -1,12 +1,19 @@
 package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
-@Data
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "DETALLES_FACTURA")
 public class DetallesFacturaModel {
@@ -25,8 +32,22 @@ public class DetallesFacturaModel {
     @Column(name = "D_OBSERVACIONES")
     private String observaciones;
 
-    @OneToMany(mappedBy = "detalleFacturaId", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<DetalleFacturaProductoModel> productos = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "C_FACTURA")
+    private FacturaModel facturaId;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        DetallesFacturaModel that = (DetallesFacturaModel) obj;
+        return Objects.equals(detalleFacturaId, that.detalleFacturaId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(detalleFacturaId);
+    }
 }
 
 

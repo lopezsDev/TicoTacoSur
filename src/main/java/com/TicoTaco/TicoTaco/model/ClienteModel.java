@@ -22,6 +22,9 @@ public class ClienteModel {
     @Column(name = "D_APELLIDO_CLIENTE")
     private String apellidoCliente;
 
+    @Column(name = "N_CEDULA")
+    private String numeroCedula;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "C_FRECUENCIA", insertable = false, updatable = false)
     private FrecuenciaModel frecuenciaId;

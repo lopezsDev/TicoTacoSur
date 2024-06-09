@@ -24,4 +24,7 @@ public class MonedaModel {
 
     @OneToMany(mappedBy = "monedaId", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<CostosOperativosModel> CostoOperativo = new HashSet<>();
+
+    @OneToMany(mappedBy = "monedaId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<FacturaModel> facturas = new HashSet<>();
 }
