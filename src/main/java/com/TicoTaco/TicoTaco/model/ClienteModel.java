@@ -1,6 +1,7 @@
 package com.TicoTaco.TicoTaco.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.HashSet;
@@ -16,15 +17,19 @@ public class ClienteModel {
     @Column(name = "C_CLIENTE")
     private Long clienteId;
 
+    @NotNull
     @Column(name = "D_NOMBRE_CLIENTE")
     private String nombreCliente;
 
+    @NotNull
     @Column(name = "D_APELLIDO_CLIENTE")
     private String apellidoCliente;
 
+    @NotNull
     @Column(name = "N_CEDULA")
     private String numeroCedula;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "C_FRECUENCIA", insertable = false, updatable = false)
     private FrecuenciaModel frecuenciaId;

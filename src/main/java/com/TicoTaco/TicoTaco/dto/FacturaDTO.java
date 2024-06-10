@@ -29,8 +29,8 @@ public class FacturaDTO implements Serializable {
     private Date fechaPedido;
     private double montoTotal;
     private List<DetallesFacturaDTO> detalles;
-    private Long sucursalId;  // Asegurarse de que estos sean Long
-    private Long pedidoClienteId;  // Asegurarse de que estos sean Long
-    private Long monedaId;  // Asegurarse de que estos sean Long
+    private Long sucursalId;
+    private Long pedidoClienteId;
+    private Long monedaId;
 }
 

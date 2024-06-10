@@ -18,19 +18,15 @@ public class CajasModel {
     @Column(name = "C_CAJAS")
     private Long cajasId;
 
-    @NotNull
     @Column(name = "F_APERTURA", nullable = false)
     private Instant apertura;
 
-    @NotNull
     @Column(name = "F_CIERRE", nullable = false)
     private Instant cierre;
 
-    @NotNull
     @Column(name = "M_INICIAL", nullable = false)
     private BigDecimal inicial;
 
-    @NotNull
     @Column(name = "M_FINAL", nullable = false)
     private BigDecimal finalMonto;
 

@@ -4,13 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SucursalDTO implements Serializable {
-    private long sucursalId;
+public class SucursalDTO {
+    private Long sucursalId;
     private String nombreSucursal;
+    private Long direccionId;
+    private Long contactoId;
+    private Long cajasId;
 }
+
 

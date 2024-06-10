@@ -24,7 +24,7 @@ public class CajasService {
     }
 
     // Obtener un elemento por su ID
-    public Optional<CajasModel> getCajasById(int id) {
+    public Optional<CajasModel> getCajasById(Long id) {
         return cajasRepository.findById(id);
     }
 
@@ -34,7 +34,7 @@ public class CajasService {
     }
 
     // Actualizar un elemento existente
-    public CajasModel updateCajas(int id, CajasModel cajasDetails) {
+    public CajasModel updateCajas(Long id, CajasModel cajasDetails) {
         CajasModel cajas = cajasRepository.findById(id).orElse(null);
 
         if (cajas != null) {
@@ -53,7 +53,7 @@ public class CajasService {
     }
 
     // Eliminar un elemento existente
-    public void deleteCajas(int id) {
+    public void deleteCajas(Long id) {
         cajasRepository.deleteById(id);
     }
 }

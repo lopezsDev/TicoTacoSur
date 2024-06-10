@@ -25,27 +25,25 @@ public class PedidoClienteModel {
     private LocalDateTime tiempoPreparacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "C_ESTADO", insertable = false, updatable = false)
+    @JoinColumn(name = "C_ESTADO", insertable = true, updatable = true)
     private EstadoPedidoModel estadoId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "C_EXPRESS", insertable = false, updatable = false)
+    @JoinColumn(name = "C_EXPRESS", insertable = true, updatable = true)
     private ExpressModel expressId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "C_EMPLEADO", insertable = false, updatable = false)
+    @JoinColumn(name = "C_EMPLEADO", insertable = true, updatable = true)
     private EmpleadoModel empleadoId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "C_CLIENTE", insertable = false, updatable = false)
+    @JoinColumn(name = "C_CLIENTE", insertable = true, updatable = true)
     private ClienteModel clienteId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "C_MENU", insertable = false, updatable = false)
+    @JoinColumn(name = "C_MENU", insertable = true, updatable = true)
     private MenuModel menuId;
 
     @OneToMany(mappedBy = "pedidoClienteId", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<FacturaModel> facturas = new HashSet<>();
 }
-
-
